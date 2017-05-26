@@ -7,7 +7,7 @@
 
  * Description: This is the solution for Lab 1, Problem Statement 1.
 
- * Filename: lab-1.c
+ * Filename: main.c
 
  * Functions: setup(), ledPinConfig(), switchPinConfig(), main()
 
@@ -88,8 +88,8 @@ void switchPinConfig(void)
     LOCK_F=0x4C4F434BU;
     CR_F=GPIO_PIN_0|GPIO_PIN_4;
 
-    // GPIO PORTF Pin 0 and Pin4
-    GPIODirModeSet(GPIO_PORTF_BASE,GPIO_PIN_4,GPIO_DIR_MODE_IN); // Set Pin-4 of PORT F as Input. Modifiy this to use another switch
+    // GPIO PORTF Pin4
+    GPIODirModeSet(GPIO_PORTF_BASE,GPIO_PIN_4,GPIO_DIR_MODE_IN); // Set Pin-4 of PORT F as Input.
     GPIOPinTypeGPIOInput(GPIO_PORTF_BASE, GPIO_PIN_4);
     GPIOPadConfigSet(GPIO_PORTF_BASE,GPIO_PIN_4,GPIO_STRENGTH_12MA,GPIO_PIN_TYPE_STD_WPU);
 }
