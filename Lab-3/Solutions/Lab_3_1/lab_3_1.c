@@ -10,7 +10,7 @@
  * Filename: lab_3_1.c
 
  * Functions: setup(), setupPWM(), timerConfig(), interruptConfig(), switchPinConfig(), detectKeyPress(), decreaseBrightness(),
- * increaseBrightness(), colorCycle(), modeDetect(), modeOne(), modeTwo(), modeThree(), main()
+ * increaseBrightness(), colorCycle(), modeDetect(), modeOne(), modeTwo(), modeThree(), Timer0IntHandler(), main()
 
  * Global Variables: ui32Load, ui32Period, ui32PWMClock, ui8AdjustR, ui8AdjustG,
  * ui8AdjustB, flag[2], singlePressFlag[2], doublePressFlag[2], delta, delay
@@ -32,10 +32,8 @@
 #include "driverlib/pin_map.h"
 
 
-// LOCK_F and CR_F - used for unlocking PORTF pin 0
+// PWM_FREQUENCY to set PWM frequency
 #define PWM_FREQUENCY 55
-#define LOCK_F (*((volatile unsigned long *)0x40025520))
-#define CR_F   (*((volatile unsigned long *)0x40025524))
 
 /*
  ------ Global Variable Declaration
@@ -88,7 +86,7 @@ void setup(void)
 
  * Description: Configure PWM Generators, set PWM frequency and outputs
 
- * Example Call: setup();
+ * Example Call: setupPWM();
 
  */
 void setupPWM(void)
@@ -202,7 +200,9 @@ enum states{
 };
 
 enum states state[2] = {IDLE, IDLE};
-
+/*
+ * Mode vales and initialization for the mode variable
+ */
 enum modes{
     AUTO,
     MODE1,
@@ -283,7 +283,7 @@ unsigned int detectKeyPress(uint32_t pinName, unsigned int n)
 
  * Description: Soft Decrease Brightness of given LED.
 
- * Example Call: detectKeyPress(ui8AdjustR, GPIO_PIN_5);
+ * Example Call: decreaseBrightness(ui8AdjustR, GPIO_PIN_5);
 
  */
 void decreaseBrightness(volatile uint8_t *ui8Adjust, uint32_t ui32PWMOut)
@@ -305,7 +305,7 @@ void decreaseBrightness(volatile uint8_t *ui8Adjust, uint32_t ui32PWMOut)
 
  * Description: Soft Increase Brightness of given LED.
 
- * Example Call: detectKeyPress(ui8AdjustR, GPIO_PIN_5);
+ * Example Call: increaseBrightness(ui8AdjustR, GPIO_PIN_5);
 
  */
 void increaseBrightness(volatile uint8_t *ui8Adjust, uint32_t ui32PWMOut)
