@@ -1,0 +1,482 @@
+******************************************************************************
+                  TI ARM Linker PC v16.9.1                     
+******************************************************************************
+>> Linked Tue Jun 27 17:55:04 2017
+
+OUTPUT FILE NAME:   <bomb_timer.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000018e1
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00002ffe  0003d002  R  X
+  SRAM                  20000000   00008000  00000a45  000075bb  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00003000   00003000    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000018d6   000018d6    r-x .text
+  00001b44    00001b44    0000121c   0000121c    r-- .const
+  00002d60    00002d60    000002a0   000002a0    r-- .cinit
+20000000    20000000    00000a45   00000000    rw-
+  20000000    20000000    0000082c   00000000    rw- .data
+  2000082c    2000082c    00000200   00000000    rw- .stack
+  20000a2c    20000a2c    00000019   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    000018d6     
+                  0000026c    000008d0     bombtimer.obj (.text)
+                  00000b3c    000005d8     glcdFunctions.obj (.text)
+                  00001114    000001dc     setupConsole.obj (.text)
+                  000012f0    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00001422    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : mpu_init.obj (.text)
+                  00001424    00000110     driverlib.lib : sysctl.obj (.text:SysCtlClockGet)
+                  00001534    000000f4                   : sysctl.obj (.text:SysCtlClockSet)
+                  00001628    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  000016c4    0000007a                                   : memset_t2.obj (.text)
+                  0000173e    00000002                                   : startup.obj (.text)
+                  00001740    00000070                                   : autoinit.obj (.text)
+                  000017b0    00000068     driverlib.lib : interrupt.obj (.text:IntEnable)
+                  00001818    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss)
+                  00001880    00000060     driverlib.lib : timer.obj (.text:TimerConfigure)
+                  000018e0    00000054     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00001934    00000054                                   : exit.obj (.text)
+                  00001988    0000004c                                   : cpy_tbl.obj (.text)
+                  000019d4    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  00001a08    0000002a                   : gpio.obj (.text:GPIODirModeSet)
+                  00001a32    00000018                   : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  00001a4a    00000002     --HOLE-- [fill = 0]
+                  00001a4c    00000018                   : timer.obj (.text:TimerDisable)
+                  00001a64    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00001a7c    00000014                                   : _lock.obj (.text)
+                  00001a90    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeGPIOInput)
+                  00001aa2    00000012                   : timer.obj (.text:TimerLoadSet)
+                  00001ab4    00000010                   : interrupt.obj (.text:IntMasterDisable)
+                  00001ac4    00000010                   : interrupt.obj (.text:IntMasterEnable)
+                  00001ad4    0000000e                   : timer.obj (.text:TimerEnable)
+                  00001ae2    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  00001af0    0000000c     driverlib.lib : cpu.obj (.text:CPUcpsid)
+                  00001afc    0000000c                   : cpu.obj (.text:CPUcpsie)
+                  00001b08    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  00001b14    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00001b20    00000008     driverlib.lib : timer.obj (.text:TimerIntEnable)
+                  00001b28    00000006                   : gpio.obj (.text:GPIOPinRead)
+                  00001b2e    00000006                   : gpio.obj (.text:GPIOPinWrite)
+                  00001b34    00000006                   : sysctl.obj (.text:SysCtlDelay)
+                  00001b3a    00000004                   : timer.obj (.text:TimerIntClear)
+                  00001b3e    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.obj (.text)
+
+.const     0    00001b44    0000121c     
+                  00001b44    00001000     glcdLibrary.obj (.const:explosion)
+                  00002b44    000000a0     glcdLibrary.obj (.const:.string:skull)
+                  00002be4    000000a0     glcdLibrary.obj (.const:.string:smiley)
+                  00002c84    00000070     driverlib.lib : interrupt.obj (.const)
+                  00002cf4    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+
+.cinit     0    00002d60    000002a0     
+                  00002d60    00000275     (.cinit..data.load) [load image, compression = lzss]
+                  00002fd5    00000003     --HOLE-- [fill = 0]
+                  00002fd8    0000000c     (__TI_handler_table)
+                  00002fe4    00000004     --HOLE-- [fill = 0]
+                  00002fe8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00002ff0    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.data      0    20000000    0000082c     UNINITIALIZED
+                  20000000    00000400     glcdLibrary.obj (.data:bomb)
+                  20000400    00000140     glcdLibrary.obj (.data:digit)
+                  20000540    000000e0     glcdLibrary.obj (.data:frame2)
+                  20000620    000000a0     glcdLibrary.obj (.data:enter_string)
+                  200006c0    000000a0     glcdLibrary.obj (.data:rocket)
+                  20000760    00000090     glcdLibrary.obj (.data:frame3)
+                  200007f0    00000024     bombtimer.obj (.data)
+                  20000814    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.data:$O1$$)
+                  20000820    00000008                                   : _lock.obj (.data:$O1$$)
+                  20000828    00000004                                   : stkdepth_vars.obj (.data)
+
+.stack     0    2000082c    00000200     UNINITIALIZED
+                  2000082c    00000200     --HOLE--
+
+.bss       0    20000a2c    00000019     UNINITIALIZED
+                  20000a2c    00000004     (.common:sw1_status)
+                  20000a30    00000004     (.common:sw2_status)
+                  20000a34    00000004     (.common:sw3_status)
+                  20000a38    00000004     (.common:sw4_status)
+                  20000a3c    00000004     (.common:ui32Period)
+                  20000a40    00000004     (.common:ui32Period1)
+                  20000a44    00000001     (.common:mode)
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       bombtimer.obj                  2256   0         53     
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         2268   620       53     
+                                                              
+    .\Console\
+       glcdLibrary.obj                0      4416      2032   
+       glcdFunctions.obj              1496   0         0      
+       setupConsole.obj               476    0         8      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1972   4416      2040   
+                                                              
+    C:/ti/TivaWare_C_Series-2.1.2.111/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                     574    108       0      
+       gpio.obj                       402    0         0      
+       interrupt.obj                  136    112       0      
+       timer.obj                      164    0         0      
+       cpu.obj                        24     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1300   220       0      
+                                                              
+    C:\ti\ccsv7\tools\compiler\ti-cgt-arm_16.9.1.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.obj                  156    0         0      
+       memset_t2.obj                  122    0         0      
+       autoinit.obj                   112    0         0      
+       copy_decompress_lzss.obj       104    0         0      
+       exit.obj                       84     0         12     
+       boot.obj                       84     0         0      
+       cpy_tbl.obj                    76     0         0      
+       _lock.obj                      20     0         8      
+       args_main.obj                  24     0         0      
+       copy_decompress_none.obj       14     0         0      
+       copy_zero_init.obj             12     0         0      
+       pre_init.obj                   4      0         0      
+       stkdepth_vars.obj              0      0         4      
+       mpu_init.obj                   2      0         0      
+       startup.obj                    2      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         816    0         24     
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      665       0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   6356   5921      2629   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00002ff0 records: 2, size/record: 8, table size: 16
+	.data: load addr=00002d60, load size=00000275 bytes, run addr=20000000, run size=0000082c bytes, compression=lzss
+	.bss: load addr=00002fe8, load size=00000008 bytes, run addr=20000a2c, run size=00000019 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00002fd8 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                           
+-------   ----                           
+00001935  C$$EXIT                        
+00001af1  CPUcpsid                       
+00001afd  CPUcpsie                       
+00001a09  GPIODirModeSet                 
+000012f1  GPIOPadConfigSet               
+00001b29  GPIOPinRead                    
+00001a91  GPIOPinTypeGPIOInput           
+00001a33  GPIOPinTypeGPIOOutput          
+00001b2f  GPIOPinWrite                   
+000017b1  IntEnable                      
+00001ab5  IntMasterDisable               
+00001ac5  IntMasterEnable                
+000005ad  KeyPress0                      
+000006e5  KeyPress1                      
+00000803  KeyPress2                      
+00000955  KeyPress3                      
+00001b15  ResetISR                       
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+00001425  SysCtlClockGet                 
+00001535  SysCtlClockSet                 
+00001b35  SysCtlDelay                    
+000019d5  SysCtlPeripheralEnable         
+00000423  Timer0IntHandler               
+00000509  Timer1IntHandler               
+00001881  TimerConfigure                 
+00001a4d  TimerDisable                   
+00001ad5  TimerEnable                    
+00001b3b  TimerIntClear                  
+00001b21  TimerIntEnable                 
+00001aa3  TimerLoadSet                   
+20000a2c  __STACK_END                    
+00000200  __STACK_SIZE                   
+20000a2c  __STACK_TOP                    
+00002ff0  __TI_CINIT_Base                
+00003000  __TI_CINIT_Limit               
+00002fd8  __TI_Handler_Table_Base        
+00002fe4  __TI_Handler_Table_Limit       
+00001741  __TI_auto_init                 
+20000814  __TI_cleanup_ptr               
+00001819  __TI_decompress_lzss           
+00001ae3  __TI_decompress_none           
+20000818  __TI_dtors_ptr                 
+2000081c  __TI_enable_exit_profile_output
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+00000000  __TI_static_base__             
+00001b09  __TI_zero_init                 
+000016c5  __aeabi_memclr                 
+000016c5  __aeabi_memclr4                
+000016c5  __aeabi_memclr8                
+00001629  __aeabi_memcpy                 
+00001629  __aeabi_memcpy4                
+00001629  __aeabi_memcpy8                
+000016c7  __aeabi_memset                 
+000016c7  __aeabi_memset4                
+000016c7  __aeabi_memset8                
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+00001423  __mpu_init                     
+2000082c  __stack                        
+00001a65  _args_main                     
+000018e1  _c_int00                       
+20000820  _lock                          
+00001a8b  _nop                           
+00001a83  _register_lock                 
+00001a7d  _register_unlock               
+0000173f  _system_post_cinit             
+00001b3f  _system_pre_init               
+20000824  _unlock                        
+00001939  abort                          
+ffffffff  binit                          
+20000800  bit_pos0                       
+20000804  bit_pos1                       
+20000808  bit_pos2                       
+2000080c  bit_pos3                       
+20000000  bomb                           
+0000026d  bombDiffusedScreen             
+000002ef  bombExplosionScreen            
+20000810  cal_time                       
+000010ad  clear_section_glcd             
+00001989  copy_in                        
+200007f9  currentstate0                  
+200007fa  currentstate1                  
+200007fb  currentstate2                  
+200007fc  currentstate3                  
+20000400  digit                          
+20000620  enter_string                   
+000003e3  eval_time                      
+00001941  exit                           
+00000679  exitaction0                    
+000007b9  exitaction1                    
+000008c9  exitaction2                    
+00000a0d  exitaction3                    
+00001b44  explosion                      
+200007f0  flag1                          
+200007f1  flag3                          
+200007f2  flag4                          
+200007f3  flag5                          
+200007f4  flag6                          
+200007f5  flag7                          
+20000540  frame2                         
+20000760  frame3                         
+00000000  g_pfnVectors                   
+00000d35  glcd_bomb_write                
+00000ca3  glcd_cleardisplay              
+00000b3d  glcd_cmd                       
+00000bff  glcd_data                      
+00000da1  glcd_digit_write               
+00000f5d  glcd_frame1_write              
+00000f09  glcd_frame2_write              
+00001061  glcd_frame3_write              
+00000ce1  glcd_img_write                 
+00000b97  glcd_init                      
+00000c59  glcd_set_page_col              
+00000ab9  main                           
+20000828  main_func_sp                   
+00001629  memcpy                         
+000016cd  memset                         
+20000a44  mode                           
+200007f6  passbit1                       
+200007f7  passbit2                       
+200007f8  passbit3                       
+200006c0  rocket                         
+00000a65  selectmode                     
+00001115  setup                          
+00002b44  skull                          
+00002be4  smiley                         
+000005d9  statemachine0                  
+0000071d  statemachine1                  
+00000839  statemachine2                  
+00000981  statemachine3                  
+20000a2c  sw1_status                     
+20000a30  sw2_status                     
+20000a34  sw3_status                     
+20000a38  sw4_status                     
+20000a3c  ui32Period                     
+20000a40  ui32Period1                    
+000004a7  updateGLCD                     
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                           
+-------   ----                           
+00000000  __TI_static_base__             
+00000000  g_pfnVectors                   
+00000200  __STACK_SIZE                   
+0000026d  bombDiffusedScreen             
+000002ef  bombExplosionScreen            
+000003e3  eval_time                      
+00000423  Timer0IntHandler               
+000004a7  updateGLCD                     
+00000509  Timer1IntHandler               
+000005ad  KeyPress0                      
+000005d9  statemachine0                  
+00000679  exitaction0                    
+000006e5  KeyPress1                      
+0000071d  statemachine1                  
+000007b9  exitaction1                    
+00000803  KeyPress2                      
+00000839  statemachine2                  
+000008c9  exitaction2                    
+00000955  KeyPress3                      
+00000981  statemachine3                  
+00000a0d  exitaction3                    
+00000a65  selectmode                     
+00000ab9  main                           
+00000b3d  glcd_cmd                       
+00000b97  glcd_init                      
+00000bff  glcd_data                      
+00000c59  glcd_set_page_col              
+00000ca3  glcd_cleardisplay              
+00000ce1  glcd_img_write                 
+00000d35  glcd_bomb_write                
+00000da1  glcd_digit_write               
+00000f09  glcd_frame2_write              
+00000f5d  glcd_frame1_write              
+00001061  glcd_frame3_write              
+000010ad  clear_section_glcd             
+00001115  setup                          
+000012f1  GPIOPadConfigSet               
+00001423  __mpu_init                     
+00001425  SysCtlClockGet                 
+00001535  SysCtlClockSet                 
+00001629  __aeabi_memcpy                 
+00001629  __aeabi_memcpy4                
+00001629  __aeabi_memcpy8                
+00001629  memcpy                         
+000016c5  __aeabi_memclr                 
+000016c5  __aeabi_memclr4                
+000016c5  __aeabi_memclr8                
+000016c7  __aeabi_memset                 
+000016c7  __aeabi_memset4                
+000016c7  __aeabi_memset8                
+000016cd  memset                         
+0000173f  _system_post_cinit             
+00001741  __TI_auto_init                 
+000017b1  IntEnable                      
+00001819  __TI_decompress_lzss           
+00001881  TimerConfigure                 
+000018e1  _c_int00                       
+00001935  C$$EXIT                        
+00001939  abort                          
+00001941  exit                           
+00001989  copy_in                        
+000019d5  SysCtlPeripheralEnable         
+00001a09  GPIODirModeSet                 
+00001a33  GPIOPinTypeGPIOOutput          
+00001a4d  TimerDisable                   
+00001a65  _args_main                     
+00001a7d  _register_unlock               
+00001a83  _register_lock                 
+00001a8b  _nop                           
+00001a91  GPIOPinTypeGPIOInput           
+00001aa3  TimerLoadSet                   
+00001ab5  IntMasterDisable               
+00001ac5  IntMasterEnable                
+00001ad5  TimerEnable                    
+00001ae3  __TI_decompress_none           
+00001af1  CPUcpsid                       
+00001afd  CPUcpsie                       
+00001b09  __TI_zero_init                 
+00001b15  ResetISR                       
+00001b21  TimerIntEnable                 
+00001b29  GPIOPinRead                    
+00001b2f  GPIOPinWrite                   
+00001b35  SysCtlDelay                    
+00001b3b  TimerIntClear                  
+00001b3f  _system_pre_init               
+00001b44  explosion                      
+00002b44  skull                          
+00002be4  smiley                         
+00002fd8  __TI_Handler_Table_Base        
+00002fe4  __TI_Handler_Table_Limit       
+00002ff0  __TI_CINIT_Base                
+00003000  __TI_CINIT_Limit               
+20000000  bomb                           
+20000400  digit                          
+20000540  frame2                         
+20000620  enter_string                   
+200006c0  rocket                         
+20000760  frame3                         
+200007f0  flag1                          
+200007f1  flag3                          
+200007f2  flag4                          
+200007f3  flag5                          
+200007f4  flag6                          
+200007f5  flag7                          
+200007f6  passbit1                       
+200007f7  passbit2                       
+200007f8  passbit3                       
+200007f9  currentstate0                  
+200007fa  currentstate1                  
+200007fb  currentstate2                  
+200007fc  currentstate3                  
+20000800  bit_pos0                       
+20000804  bit_pos1                       
+20000808  bit_pos2                       
+2000080c  bit_pos3                       
+20000810  cal_time                       
+20000814  __TI_cleanup_ptr               
+20000818  __TI_dtors_ptr                 
+2000081c  __TI_enable_exit_profile_output
+20000820  _lock                          
+20000824  _unlock                        
+20000828  main_func_sp                   
+2000082c  __stack                        
+20000a2c  __STACK_END                    
+20000a2c  __STACK_TOP                    
+20000a2c  sw1_status                     
+20000a30  sw2_status                     
+20000a34  sw3_status                     
+20000a38  sw4_status                     
+20000a3c  ui32Period                     
+20000a40  ui32Period1                    
+20000a44  mode                           
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+ffffffff  binit                          
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+
+[140 symbols]
