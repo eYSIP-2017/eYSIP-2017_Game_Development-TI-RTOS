@@ -1,16 +1,19 @@
 /*
 
- * Author:  Akshay U Hegde
-          ERTS Lab, CSE Department, IIT Bombay
+ * Author: Akshay U Hegde, Intern, eYSIP - 2017, IIT Bombay.
 
  * Description: This is the definitions of the header file for working with JHD12864 LCD on the console.
 
  * Filename: glcd.c
 
- * Functions: main()
+ * Functions: glcd_data(), glcd_cmd(), glcd_setColumn(), glcd_setPage(), glcd_cleanup(), glcd_clearDisplay(),
+              glcd_write, glcd_draw, display40x32(), textToGLCD(), displayText(), glcd_init()
 
- * Global Variables: None
+ * Global Variables: p, block_x, x_prev, y_prev, holder, latency, pinName, baseName, temp[8], flag
 
+ */
+/*
+ * Requisite Headers including console initialization functions, and custom font library.
  */
 #include <stdint.h>
 #include <stdbool.h>
@@ -24,13 +27,14 @@
 #include "driverlib/gpio.h"
 #include "Images/characters.h"
 
+// ROM Libary
 #define TARGET_IS_BLIZZARD_RB1
 #include "driverlib/rom.h"
 
 /*
  * Global Variable Definition
  */
-unsigned char i, j, block_x, x_prev, y_prev, p, holder;
+unsigned char p, block_x, x_prev, y_prev, holder;
 uint32_t latency;
 uint32_t pinName, baseName;
 unsigned char temp[8];
@@ -244,9 +248,12 @@ void glcd_write(unsigned char *image)
  */
 void glcd_draw(unsigned char x_pos, unsigned char y_pos)
 {
+    unsigned char i;
+    // Clear Previous 8x8 square
     glcd_setPage(y_prev);
     for( i = 0; i < 8 ; i++)
     {
+        // Prevents Clearing out of screen
         block_x = x_prev - (4-i);
         if(x_prev < 4)
             x_prev = 4;
@@ -255,9 +262,11 @@ void glcd_draw(unsigned char x_pos, unsigned char y_pos)
         glcd_setColumn(block_x);
         glcd_data(0x00);
     }
+    // Draw current 8x8 square
     glcd_setPage(y_pos);
     for( i = 0; i < 8 ; i++)
     {
+        // Prevents square going out of screen
         if((x_pos) < 4)
             x_pos = 4;
         else if (x_pos > 123)
@@ -266,9 +275,23 @@ void glcd_draw(unsigned char x_pos, unsigned char y_pos)
         glcd_setColumn(block_x);
         glcd_data(0xFF);
     }
+    // Store value for clearing
     x_prev = x_pos;
     y_prev = y_pos;
 }
+/*
+
+ * Function Name: display40x32(unsigned char page, unsigned char quadrant, unsigned char *image)
+
+ * Input: page, quadrant, *image
+
+ * Output: none
+
+ * Description: Displays an image of size 40x32 pixels on the GLCD at the required position on the screen.
+
+ * Example Call: display40x32(3, 2, coin)
+
+ */
 void display40x32(unsigned char page, unsigned char quadrant, unsigned char *image)
 {
     unsigned char i = 0;
@@ -280,7 +303,7 @@ void display40x32(unsigned char page, unsigned char quadrant, unsigned char *ima
 
         for(i = (quadrant*16); i < (quadrant*16 + 32); i++)
         {
-            // Select all the columns
+            // Select the columns
             glcd_setColumn(i);
 
             //Send hex values GLCD
@@ -290,7 +313,19 @@ void display40x32(unsigned char page, unsigned char quadrant, unsigned char *ima
         p++;
     }
 }
+/*
 
+ * Function Name: textToGLCD(unsigned char character)
+
+ * Input: character
+
+ * Output: none
+
+ * Description: Assigns corresponding GLCD character from the custom font library to each Ascii Value.
+
+ * Example Call: textToGLCD(a)
+
+ */
 void textToGLCD(unsigned char character)
 {
     unsigned char q = 0;
@@ -302,6 +337,7 @@ void textToGLCD(unsigned char character)
         {
             if(character == q)
             {
+                // Compare ascii value with the input and assign corresponding hex values from font library.
                 temp[i] = ascii[(q*8) + i];
             }
             i++;
@@ -309,6 +345,19 @@ void textToGLCD(unsigned char character)
         q++;
     }
 }
+/*
+
+ * Function Name: void displayText(char *text, unsigned char page)
+
+ * Input: *text, page
+
+ * Output: none
+
+ * Description: Writes strings directly onto the specific page on the GLCD, starting from 0 column.
+
+ * Example Call: displayText("Hola", 0)
+
+ */
 void displayText(char *text, unsigned char page)
 {
     unsigned char i = 0, j = 0, k = 0;
@@ -327,6 +376,7 @@ void displayText(char *text, unsigned char page)
             glcd_data(temp[j]);
             j++;
         }
+        // Text moves on to next page automatically on end of line
         if(cursor == 15)
         {
             if(page <= 7)
@@ -335,6 +385,7 @@ void displayText(char *text, unsigned char page)
             }
             else
             {
+                // Display from first line again, on end of page
                 page = 0;
             }
             cursor = 0;
@@ -353,7 +404,7 @@ void displayText(char *text, unsigned char page)
 
  * Output: none
 
- * Description: Initializes the GLCD Screen.
+ * Description: Initializes the GLCD Screen left and right halves.
 
  * Example Call: glcd_init();
 

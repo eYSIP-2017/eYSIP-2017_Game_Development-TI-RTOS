@@ -1,21 +1,24 @@
-Example Summary
+VM_RTOS Summary
 ----------------
-This example is intended to be a starting point for new development where
-a fuller set of kernel features and debug capabilities are enabled.
+This is the switching statechart implementation of a vending machine abstraction, 
+using TI-RTOS. User can enter money using switch presses, select desired soda once 
+money has been entered and soda is dispensed using LED blink, followed by change 
+dispensing using LEDs.
 
 Peripherals Exercised
 ---------------------
-Board_LED0  Indicates that the board was initialized within main()
+It uses a game console interfaced with Tiva C TM4C123GH6PM Board, and utilizes
+switches, LEDs and GLCD interfaced with the Board.
 
 Example Usage
 -------------
-The example lights Board_LED0 as part of the initialization in main().
-Then a heartBeat task toggles the LED at a rate determined by the arg0 parameter
-for the constructed Task instance in the .c file.
+This can be used as a simple Vending Machine Firmware abstraction, which receives inputs
+using switch presses and displays outputs as LED blinks.
 
 Application Design Details
 --------------------------
-This examples is the same as the "Empty (Minimal)" example except many
+This Project is built out of the Empty project which 
+is the same as the "Empty (Minimal)" example except many
 development and debug features are enabled. For example:
     - Logging is enabled
     - Assert checking is enabled

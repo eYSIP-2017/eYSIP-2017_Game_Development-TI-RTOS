@@ -8,16 +8,16 @@
 #include <xdc/std.h>
 
 #include <ti/sysbios/knl/Task.h>
-extern const ti_sysbios_knl_Task_Handle updateGLCDtask;
+extern const ti_sysbios_knl_Task_Handle outputTask;
 
 #include <ti/sysbios/knl/Task.h>
-extern const ti_sysbios_knl_Task_Handle readSWITCHtask;
+extern const ti_sysbios_knl_Task_Handle readTask;
 
 #include <ti/sysbios/knl/Semaphore.h>
-extern const ti_sysbios_knl_Semaphore_Handle GLCDsem;
+extern const ti_sysbios_knl_Semaphore_Handle OutputSem;
 
 #include <ti/sysbios/knl/Semaphore.h>
-extern const ti_sysbios_knl_Semaphore_Handle SWITCHsem;
+extern const ti_sysbios_knl_Semaphore_Handle SwitchSem;
 
 #include <ti/sysbios/hal/Hwi.h>
 extern const ti_sysbios_hal_Hwi_Handle Timer_2A_INT;

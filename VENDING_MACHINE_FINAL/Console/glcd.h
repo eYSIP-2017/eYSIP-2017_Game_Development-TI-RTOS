@@ -1,8 +1,11 @@
 /*
- * glcd_init.h
- *
- *  Created on: 30-May-2017
- *      Author: AxRox
+
+ * Author: Akshay U Hegde, Intern, eYSIP - 2017, IIT Bombay.
+
+ * Description: This is the header file for working with JHD12864 LCD on the console.
+
+ * Filename: glcd.h
+
  */
 
 #ifndef GLCD_H_
