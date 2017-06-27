@@ -93,7 +93,7 @@ VM_RTOS.obj: /Users/AxRox/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/IModu
 VM_RTOS.obj: /Users/AxRox/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h
 VM_RTOS.obj: /Users/AxRox/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/Log__epilogue.h
 VM_RTOS.obj: /Users/AxRox/ti/xdctools_3_32_00_06_core/packages/xdc/cfg/global.h
-VM_RTOS.obj: /Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/Debug/configPkg/package/cfg/VM_RTOS_pem4f.h
+VM_RTOS.obj: /Users/AxRox/TIVA_Workspace/Vending_Machine_Final/Debug/configPkg/package/cfg/VM_RTOS_pem4f.h
 VM_RTOS.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Task.h
 VM_RTOS.obj: /Users/AxRox/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h
 VM_RTOS.obj: /Users/AxRox/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/IInstance.h
@@ -226,8 +226,6 @@ VM_RTOS.obj: ../Console/console.h
 VM_RTOS.obj: ../Console/glcd.h
 VM_RTOS.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/timer.h
 VM_RTOS.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_memmap.h
-VM_RTOS.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/gpio.h
-VM_RTOS.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_gpio.h
 VM_RTOS.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/rom.h
 VM_RTOS.obj: ../Images/images.h
 
@@ -324,7 +322,7 @@ VM_RTOS.obj: ../Images/images.h
 /Users/AxRox/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h: 
 /Users/AxRox/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/Log__epilogue.h: 
 /Users/AxRox/ti/xdctools_3_32_00_06_core/packages/xdc/cfg/global.h: 
-/Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/Debug/configPkg/package/cfg/VM_RTOS_pem4f.h: 
+/Users/AxRox/TIVA_Workspace/Vending_Machine_Final/Debug/configPkg/package/cfg/VM_RTOS_pem4f.h: 
 /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Task.h: 
 /Users/AxRox/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h: 
 /Users/AxRox/ti/xdctools_3_32_00_06_core/packages/xdc/runtime/IInstance.h: 
@@ -457,7 +455,5 @@ VM_RTOS.obj: ../Images/images.h
 ../Console/glcd.h: 
 /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/timer.h: 
 /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_memmap.h: 
-/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/gpio.h: 
-/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_gpio.h: 
 /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/rom.h: 
 ../Images/images.h: 

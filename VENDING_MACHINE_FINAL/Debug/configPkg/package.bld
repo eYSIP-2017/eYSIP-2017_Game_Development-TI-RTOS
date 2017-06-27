@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: '/Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/VM_RTOS.cfg',
+        cfgScript: '/Users/AxRox/TIVA_Workspace/Vending_Machine_Final/VM_RTOS.cfg',
         profile: 'release',
         cfgHome: 'configPkg',
 });
@@ -41,7 +41,7 @@ else {
 
 var thisObj = {
     cfg:        '../VM_RTOS.cfg',
-    outputPath: '/Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/Debug/configPkg',
+    outputPath: '/Users/AxRox/TIVA_Workspace/Vending_Machine_Final/Debug/configPkg',
     exeName:    'VM_RTOS' + suffix,
     exeIntName: 'VM_RTOS' + suffix.replace('.', '_'),
     targ:       targ,

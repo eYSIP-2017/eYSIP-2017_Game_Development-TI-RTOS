@@ -7,5 +7,5 @@
 #       or equal to the generated config header
 #
 linker.cmd: package/cfg/VM_RTOS_pem4f.xdl
-	$(SED) 's"^\"\(package/cfg/VM_RTOS_pem4fcfg.cmd\)\"$""\"/Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/Debug/configPkg/\1\""' package/cfg/VM_RTOS_pem4f.xdl > $@
+	$(SED) 's"^\"\(package/cfg/VM_RTOS_pem4fcfg.cmd\)\"$""\"/Users/AxRox/TIVA_Workspace/Vending_Machine_Final/Debug/configPkg/\1\""' package/cfg/VM_RTOS_pem4f.xdl > $@
 	-$(SETDATE) -r:max package/cfg/VM_RTOS_pem4f.h compiler.opt compiler.opt.defs

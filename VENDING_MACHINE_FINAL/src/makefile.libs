@@ -1,6 +1,6 @@
 #
 # This file was generated based on the configuration script:
-#     /Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/VM_RTOS.cfg
+#     /Users/AxRox/TIVA_Workspace/Vending_Machine_Final/VM_RTOS.cfg
 #
 # This makefile may be included in other makefiles that need to build
 # the libraries containing the compiled source files generated as
@@ -14,7 +14,7 @@
 #
 # The absolute path to the generated source directory (at the time the
 # sources were generated) is:
-#    /Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/src
+#    /Users/AxRox/TIVA_Workspace/Vending_Machine_Final/src
 #
 GEN_SRC_DIR ?= ../src
 

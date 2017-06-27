@@ -11,7 +11,7 @@ Console/glcd.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Se
 Console/glcd.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/sysctl.h
 Console/glcd.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/pin_map.h
 Console/glcd.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/gpio.h
-Console/glcd.obj: /Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/Images/characters.h
+Console/glcd.obj: /Users/AxRox/TIVA_Workspace/Vending_Machine_Final/Images/characters.h
 Console/glcd.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/rom.h
 
 ../Console/glcd.c: 
@@ -25,5 +25,5 @@ Console/glcd.obj: /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Se
 /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/sysctl.h: 
 /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/pin_map.h: 
 /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/gpio.h: 
-/Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/Images/characters.h: 
+/Users/AxRox/TIVA_Workspace/Vending_Machine_Final/Images/characters.h: 
 /Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/rom.h: 

@@ -16,7 +16,7 @@ BIOS_INC  = -I"/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/
 
 TARGET_INC = -I"/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/"
 
-INCS = $(BIOS_INC) $(TARGET_INC)  --include_path="/Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL" --include_path="/Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL" --include_path="/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include" 
+INCS = $(BIOS_INC) $(TARGET_INC)  --include_path="/Users/AxRox/TIVA_Workspace/Vending_Machine_Final" --include_path="/Users/AxRox/TIVA_Workspace/Vending_Machine_Final" --include_path="/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include" 
 
 CC = /Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/bin/armcl -c $(CCOPTS) -I /Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include
 ASM = /Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/bin/armcl -c $(CCOPTS) -I /Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include

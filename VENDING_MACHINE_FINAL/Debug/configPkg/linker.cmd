@@ -9,13 +9,13 @@
  */
 
 
--l"/Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/Debug/configPkg/package/cfg/VM_RTOS_pem4f.oem4f"
+-l"/Users/AxRox/TIVA_Workspace/Vending_Machine_Final/Debug/configPkg/package/cfg/VM_RTOS_pem4f.oem4f"
 -l"/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/mw/wifi/cc3x00/lib/cc3x00_host_driver.aem4f"
 -l"/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/lib/drivers_tivaware.aem4f"
 -l"/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/lib/drivers_wifi_tivaware.aem4f"
 -l"/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/mw/fatfs/lib/release/ti.mw.fatfs.aem4f"
 -l"/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/ports/lib/tirtosport.aem4f"
--l"/Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/src/sysbios/sysbios.aem4f"
+-l"/Users/AxRox/TIVA_Workspace/Vending_Machine_Final/src/sysbios/sysbios.aem4f"
 -l"/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/catalog/arm/cortexm4/tiva/ce/lib/Boot.aem4f"
 -l"/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/targets/arm/rtsarm/lib/ti.targets.arm.rtsarm.aem4f"
 -l"/Users/AxRox/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/targets/arm/rtsarm/lib/boot.aem4f"

@@ -130,33 +130,33 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-VENDING_MACHINE_FINAL.out \
+Vending_Machine_Final.out \
 
 EXE_OUTPUTS__QUOTED += \
-"VENDING_MACHINE_FINAL.out" \
+"Vending_Machine_Final.out" \
 
 BIN_OUTPUTS += \
-VENDING_MACHINE_FINAL.hex \
+Vending_Machine_Final.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"VENDING_MACHINE_FINAL.hex" \
+"Vending_Machine_Final.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "VENDING_MACHINE_FINAL.out"
+	@$(MAKE) --no-print-directory -Onone "Vending_Machine_Final.out"
 
 # Tool invocations
-VENDING_MACHINE_FINAL.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+Vending_Machine_Final.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: ARM Linker'
-	"/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"VENDING_MACHINE_FINAL.map" --heap_size=0 --stack_size=512 -i"/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/lib" -i"/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="VENDING_MACHINE_FINAL_linkInfo.xml" --rom_model -o "VENDING_MACHINE_FINAL.out" $(ORDERED_OBJS)
+	"/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"Vending_Machine_Final.map" --heap_size=0 --stack_size=512 -i"/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/lib" -i"/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Vending_Machine_Final_linkInfo.xml" --rom_model -o "Vending_Machine_Final.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-VENDING_MACHINE_FINAL.hex: $(EXE_OUTPUTS)
+Vending_Machine_Final.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: ARM Hex Utility'
-	"/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/bin/armhex"  -o "VENDING_MACHINE_FINAL.hex" $(EXE_OUTPUTS__QUOTED)
+	"/Applications/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.1.LTS/bin/armhex"  -o "Vending_Machine_Final.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 

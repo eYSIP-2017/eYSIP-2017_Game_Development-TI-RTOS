@@ -18071,7 +18071,7 @@ __o = __obj[1065]
     __o['cfgArgs'] = null
     __o['cfgArgsEncoded'] = true
     __o['cfgHome'] = String(java.net.URLDecoder.decode('configPkg', 'UTF-8'))
-    __o['cfgScript'] = String(java.net.URLDecoder.decode('%2FUsers%2FAxRox%2FTIVA_Workspace%2FVENDING_MACHINE_FINAL%2FVM_RTOS.cfg', 'UTF-8'))
+    __o['cfgScript'] = String(java.net.URLDecoder.decode('%2FUsers%2FAxRox%2FTIVA_Workspace%2FVending_Machine_Final%2FVM_RTOS.cfg', 'UTF-8'))
     __o['prelink'] = false
     __o['profile'] = String(java.net.URLDecoder.decode('release', 'UTF-8'))
     __o['releases'] = __obj[1066.0]
@@ -18182,7 +18182,7 @@ __o = __obj[1078]  // ti.targets.arm.elf.M4F/ccConfigOpts
 __o = __obj[1079]  // ti.targets.arm.elf.M4F/ccOpts
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.targets.arm.elf.M4F%2FccOpts', 'UTF-8'))
-    __o['prefix'] = String(java.net.URLDecoder.decode('-mv7M4+--code_state%3D16+--float_support%3DFPv4SPD16+-me+--include_path%3D%22%2FUsers%2FAxRox%2FTIVA_Workspace%2FVENDING_MACHINE_FINAL%22+--include_path%3D%22%2FUsers%2FAxRox%2FTIVA_Workspace%2FVENDING_MACHINE_FINAL%22+--include_path%3D%22%2FUsers%2FAxRox%2Fti%2Ftirtos_tivac_2_16_00_08%2Fproducts%2FTivaWare_C_Series-2.1.1.71b%22+--include_path%3D%22%2FUsers%2FAxRox%2Fti%2Ftirtos_tivac_2_16_00_08%2Fproducts%2Fbios_6_45_01_29%2Fpackages%2Fti%2Fsysbios%2Fposix%22+--include_path%3D%22%2FApplications%2Fti%2Fccsv7%2Ftools%2Fcompiler%2Fti-cgt-arm_16.9.1.LTS%2Finclude%22+--define%3Dccs%3D%22ccs%22+--define%3DPART_TM4C123GH6PM+--define%3Dccs+--define%3DTIVAWARE+-g+--gcc+--diag_warning%3D225+--diag_warning%3D255+--diag_wrap%3Doff+--display_error_number+--gen_func_subsections%3Don+--abi%3Deabi+++-qq+-pdsw225', 'UTF-8'))
+    __o['prefix'] = String(java.net.URLDecoder.decode('-mv7M4+--code_state%3D16+--float_support%3DFPv4SPD16+-me+--include_path%3D%22%2FUsers%2FAxRox%2FTIVA_Workspace%2FVending_Machine_Final%22+--include_path%3D%22%2FUsers%2FAxRox%2FTIVA_Workspace%2FVending_Machine_Final%22+--include_path%3D%22%2FUsers%2FAxRox%2Fti%2Ftirtos_tivac_2_16_00_08%2Fproducts%2FTivaWare_C_Series-2.1.1.71b%22+--include_path%3D%22%2FUsers%2FAxRox%2Fti%2Ftirtos_tivac_2_16_00_08%2Fproducts%2Fbios_6_45_01_29%2Fpackages%2Fti%2Fsysbios%2Fposix%22+--include_path%3D%22%2FApplications%2Fti%2Fccsv7%2Ftools%2Fcompiler%2Fti-cgt-arm_16.9.1.LTS%2Finclude%22+--define%3Dccs%3D%22ccs%22+--define%3DPART_TM4C123GH6PM+--define%3Dccs+--define%3DTIVAWARE+-g+--gcc+--diag_warning%3D225+--diag_warning%3D255+--diag_wrap%3Doff+--display_error_number+--gen_func_subsections%3Don+--abi%3Deabi+++-qq+-pdsw225', 'UTF-8'))
     __o['suffix'] = String(java.net.URLDecoder.decode('', 'UTF-8'))
 
 __o = __obj[1080]  // ti.targets.arm.elf.M4F/compatibleSuffixes

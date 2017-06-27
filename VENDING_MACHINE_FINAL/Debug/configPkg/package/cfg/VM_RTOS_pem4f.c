@@ -1596,7 +1596,7 @@ __FAR__ const xdc_SizeT ti_sysbios_knl_Task_Module_State_terminatedQ__O = offset
  *  Define absolute path prefix for this executable's
  *  configuration generated files.
  */
-xdc__META(__ASM__, "@(#)__ASM__ = /Users/AxRox/TIVA_Workspace/VENDING_MACHINE_FINAL/Debug/configPkg/package/cfg/VM_RTOS_pem4f");
+xdc__META(__ASM__, "@(#)__ASM__ = /Users/AxRox/TIVA_Workspace/Vending_Machine_Final/Debug/configPkg/package/cfg/VM_RTOS_pem4f");
 
 /*
  *  ======== __ISA__ ========

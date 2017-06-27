@@ -391,7 +391,7 @@ unsigned int detectKeyPress(unsigned char n)
         {
             // Switch continues to be pressed
             state[n] = RELEASE;
-            return 1;
+            return 0;
         }
         else
         {

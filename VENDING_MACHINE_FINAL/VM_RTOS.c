@@ -49,15 +49,10 @@
 /* Timer and GPIO function Headers */
 #include "driverlib/timer.h"
 #include "inc/hw_memmap.h"
-#include "driverlib/gpio.h"
-#include "inc/hw_gpio.h"
 
 /*For ROM Functions*/
 #define TARGET_IS_BLIZZARD_RB1
 #include "driverlib/rom.h"
-
-
-
 
 /*
  * This Header files for all custom imagery including smiley, soda can, coin graphic.
@@ -141,6 +136,7 @@ void coinScreenInput()
         // UP Switch Pressed -> Entered Dime
         input = DIME;
         sum += 5;
+        micros(50);
         glcd_clearDisplay();
     }
     else if(detectKeyPress(2) == 1)
@@ -148,6 +144,7 @@ void coinScreenInput()
         // DOWN Switch Pressed -> Entered Nickel
         input = NICKEL;
         sum += 10;
+        micros(50);
         glcd_clearDisplay();
     }
     else if(detectKeyPress(4) == 1)
@@ -155,6 +152,7 @@ void coinScreenInput()
         // HAT Switch Pressed(On Thumbstick) -> Entered Quarter
         input = QUARTER;
         sum += 25;
+        micros(50);
         glcd_clearDisplay();
     }
     else if(detectKeyPress(1) == 1)
@@ -376,7 +374,7 @@ void deliveryOutput()
         {
             ledON(3);
             millis(500);
-            ledON(3);
+            ledOFF(3);
             millis(500);
             sum -= 5;
         }
@@ -490,6 +488,10 @@ int main(void)
     glcd_init();
     glcd_clearDisplay();
 
+    ledOFF(1);
+    ledOFF(2);
+    ledOFF(3);
+    ledOFF(4);
     /* Start BIOS */
     BIOS_start();
 
