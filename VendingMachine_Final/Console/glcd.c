@@ -6,7 +6,7 @@
 
  * Filename: glcd.c
 
- * Functions: glcd_data(), glcd_cmd(), glcd_setColumn(), glcd_setPage(), glcd_cleanup(), glcd_clearDisplay(),
+ * Functions: glcd_data(), glcd_cmd(), glcd_setColumn(), glcd_setPage(), glcd_clearDisplay(),
               glcd_write, glcd_draw, display40x32(), textToGLCD(), displayText(), glcd_init()
 
  * Global Variables: p, block_x, x_prev, y_prev, holder, latency, pinName, baseName, temp[8], flag
@@ -162,16 +162,6 @@ void glcd_setPage(unsigned char page)
     glcd_cmd(0xB8 | page);
     micros(50);
 
-}
-void glcd_cleanup(unsigned char page, unsigned char quadrant)
-{
-    unsigned char j;
-    glcd_setPage(page);
-    for(j = (quadrant*16); j < ((quadrant*16) + 32); j++)
-    {
-        glcd_setColumn(j);
-        glcd_data(0x00);
-    }
 }
 /*
 
