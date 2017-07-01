@@ -1,0 +1,508 @@
+\documentclass[a4paper,12pt,oneside]{book}
+
+%-------------------------------Start of the Preable------------------------------------------------
+\usepackage[english]{babel}
+\usepackage{blindtext}
+%packagr for hyperlinks
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{color}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\urlstyle{same}
+%use of package fancy header
+\usepackage{fancyhdr}
+\setlength\headheight{26pt}
+\fancyhf{}
+%\rhead{\includegraphics[width=1cm]{logo}}
+\lhead{\rightmark}
+\rhead{\includegraphics[width=1cm]{logo}}
+\fancyfoot[RE, RO]{\thepage}
+\fancyfoot[CE, CO]{\href{http://www.e-yantra.org}{www.e-yantra.org}}
+
+\pagestyle{fancy}
+
+%use of package for section title formatting
+\usepackage{titlesec}
+\titleformat{\chapter}
+  {\Large\bfseries} % format
+  {}                % label
+  {0pt}             % sep
+  {\huge}           % before-code
+ 
+%use of package tcolorbox for colorful textbox
+\usepackage[most]{tcolorbox}
+\tcbset{colback=cyan!5!white,colframe=cyan!75!black,halign title = flush center}
+ 
+\lstset{language=C,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{green}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
+
+\newtcolorbox{mybox}[1]{colback=cyan!5!white,
+colframe=cyan!75!black,fonttitle=\bfseries,
+title=\textbf{\Large{#1}}}
+
+%use of package marginnote for notes in margin
+\usepackage{marginnote}
+
+%use of packgage watermark for pages
+%\usepackage{draftwatermark}
+%\SetWatermarkText{\includegraphics{logo}}
+\usepackage[scale=2,opacity=0.1,angle=0]{background}
+\backgroundsetup{
+contents={\includegraphics{logo}}
+}
+
+%use of newcommand for keywords color
+\usepackage{xcolor}
+\newcommand{\keyword}[1]{\textcolor{red}{\textbf{#1}}}
+
+%package for inserting pictures
+\usepackage{graphicx}
+
+%package for highlighting
+\usepackage{color,soul}
+
+%new command for table
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}}
+
+
+%----------------------End of the Preamble---------------------------------------
+
+
+\begin{document}
+
+%---------------------Title Page------------------------------------------------
+\begin{titlepage}
+\raggedright
+{\Large eYSIP - 2017\\[1cm]}
+{\Huge\scshape Game Development with TI-RTOS \\[.1in]}
+\vfill
+\begin{flushright}
+{\large Akshay Hegde \\}
+{\large Umang Deshpande \\}
+{\large Sanam Shakya \\}
+{\large Vishwanathan Iyer \\}
+{\large Duration of Internship: $ 22/05/2017-07/07/2017 $ \\}
+\end{flushright}
+
+{\itshape 2017, e-Yantra Publication}
+\end{titlepage}
+%-------------------------------------------------------------------------------
+
+\chapter[Project Tag]{Game Development with \\ TI-RTOS}
+\section*{Abstract}
+\qquad Real Time Systems is the reactive embedded systems where system has to perform various tasks within timeline. There are various software architecture for programming Real Time Systems. So this project deals with various concepts of Real Time Systems, Statechart design principles and developing various exercises based on TI-RTOS and Switch Case Statecharts. This project aims at developing software modules which will form the basis for any game that can be developed on the console.
+
+\section*{Completion Status}
+\qquad The requisite software modules for game development have been created successfully. Also game design approaches are fully covered. The following modules have been developed:
+\begin{itemize}
+    \item Flexible GLCD library for game objects display, robust Font library in two different sizes for display of text on GLCD and Tones library for playing any music and beeps using onboard buzzer,
+    \item Working integration of statecharts with TI-RTOS for easier task scheduling.
+    \item Statechart implementation exercises for an insight into the design approach, including \textit{The Vending Machine Controller}(with RTOS) and \textit{Timed Bomb Controller}(without RTOS) have been developed.
+    \item Completely implemented \textit{Breakout} Game designed using Statechart Approach, implemented using Switch Case construct and TI-RTOS.(Some minor bugs exist, but should not hinder understanding of game design)
+\end{itemize}
+
+\section{Hardware parts}
+\begin{itemize}
+  \item List of hardware 
+  \begin{itemize}
+    \item Graphical LCD
+    \item Buzzer
+    \item Joystick
+    \item Switches
+    \item LEDs
+    \item Vibration Motor
+    \item TIVA C Series TM4C123G6HPM
+    \item  IC 7404
+  \end{itemize}
+  \item Detail of each hardware:
+      \begin{itemize}
+  \item TIVA C Series TM4C123G6HPM
+  \begin{itemize}
+    \item High Performance TM4C123GH6PM MCU
+    \item 80MHz 32-bit ARM Cortex-M4-based microcontrollers CPU
+    \item 256KB Flash, 32KB SRAM, 2KB EEPROM
+    \item Two Controller Area Network (CAN) modules
+    \item USB 2.0 Host/Device/OTG + PHY
+    \item Dual 12-bit 2MSPS ADCs, motion control PWMs
+    \item 8 UART, 6 I2C, 4 SPI
+    \item On-board In-Circuit Debug Interface (ICDI)
+  \end{itemize}
+    \item Graphical LCD
+    \begin{itemize}
+      \item 128x64 Display.
+      \item 20 pins.
+      \item It has 128 coloums and 8 pages.Each page is 8 bit wide.
+      \item It is divided into 2 halfs, each half is controlled by a controller KS0108.
+      \item Writing is done page wise.
+    \end{itemize}
+    \item Buzzer
+    \begin{itemize}
+      \item Rated voltage 3V.2-5V MAX Limits.
+      \item Rated Current 30mA
+      \item Sound Level at 10cm 85dB
+      \item Frequecy 2300+/-300Hz
+    \end{itemize}
+    \item Joystick
+    \begin{itemize}
+      \item 2 Axis Joystick.
+      \item ADC Output.
+      \item 2 Potentiometer.
+      \item 
+    \end{itemize}
+    \item Vibration Motor 
+    \begin{itemize}
+      \item An eccentric rotating mass vibration motor (ERM).
+      \item Uses a small unbalanced mass on a DC motor, when it rotates it creates a force that translates to vibrations.
+      \item A linear resonant actuator (LRA) contains a small internal mass attached to a spring, which creates a force when driven.
+    \end{itemize}
+    \item Switches
+    \item LEDs
+    \item  IC 7404
+  \end{itemize}
+  \item Connection diagram
+  Game Console
+  \begin{center}
+  \includegraphics[width=15cm, height=10cm]{GAMECONSOLE_SCHEMATIC.png}
+  \end{center}
+  \item Links
+  \begin{itemize}
+  \item 
+  \href{https://www.engineersgarage.com/sites/default/files/Graphics%20LCD%20JHD12864E%20Datasheet.pdf}{GLCD Datasheet}
+  \item
+  \href{https://www.engineersgarage.com/sites/default/files/74LS04.pdf}{IC 7404 Datasheet}
+  \end{itemize} 
+\end{itemize}
+\section{Software used}
+\subsection{Code Composer Studio}
+\qquad \textit{Code Composer Studio (CCStudio or CCS)} is an integrated development environment (IDE) to develop applications for Texas Instruments (TI) embedded processors. It has complete Windows, Linux and Mac\footnote[1]{Please note that only microcontroller and connectivity devices are supported on Mac. Processors devices are not supported.} support for the entire Texas Instruments portfolio, including the board used for the project, i.e., Tiva C TM4C123GH6PM Launchpad.
+\subsubsection{Version Used}
+\qquad Code Composer Studio Version:7.1.0.00016 is used throughout the project. Installation of RTOS, and training material are accessible directly through the Resource Explorer in this version.
+\subsubsection{Downloading CCS}
+Download the Windows installer from
+\begin{enumerate}
+\item \href{http://software-dl.ti.com/ccs/esd/CCSv7/CCS_7_1_0/exports/ccs_setup_7.1.0.00016.exe}{CCS(Windows) Web Installer} or
+\item \href{http://software-dl.ti.com/ccs/esd/CCSv7/CCS_7_1_0/exports/CCS7.1.0.00016_win32.zip}{CCS(Windows) Offline Installer}. 
+\end{enumerate} 
+Download the macOS installer from
+\begin{enumerate}
+\item \href{http://software-dl.ti.com/ccs/esd/CCSv7/CCS_7_1_0/exports/CCS7.1.0.00016_web_osx.zip}{CCS(macOS) Web Installer} or
+\item \href{http://software-dl.ti.com/ccs/esd/CCSv7/CCS_7_1_0/exports/CCS7.1.0.00016_osx.zip}{CCS(macOS) Offline Installer}. 
+\end{enumerate} 
+\\ Linux versions can be installed from \href{http://processors.wiki.ti.com/index.php/Download_CCS}{CCS All Versions Download Page}. \\
+\qquad The web installer will require Internet access until it completes. If the web installer version is unavailable or you can’t get it to work,download, unzip and run the offline version. The offline download will be much larger than the installed size of CCS since it includes all the possible supported hardware. 
+\subsubsection{Installing CCS(Windows)}
+Double click on the downloaded installer, after the installer has started, follow the steps mentioned below:\\
+\begin{enumerate}
+\item Accept the Software License Agreement and click Next.\\
+{\begin{center}
+\includegraphics[width=6cm, height=6cm]{CCSInstall1}
+\end{center}}
+\item Select the destination folder and click next.\\
+\begin{center}
+\includegraphics[width=6cm, height=6cm]{CCSInstall2}
+\end{center}
+\item Select the processors that your CCS installation will support. You must select "TM4C12X Arm Cortex M4". You can select other architectures, but the installation time and size will increase.\\
+\begin{center}
+\includegraphics[width=6cm, height=6cm]{CCSInstall3}
+\end{center}
+\item Select debug probes and click finish \\
+\begin{center}
+\includegraphics[width=6cm, height=6cm]{CCSInstall4}
+\end{center}
+\item The installer process	should take 15 - 30 minutes, depending on the speed of your connection. The offline installation should take 10 to 15 minutes. When the installation is complete, uncheck the “Launch Code Composer Studio v7” checkbox and then click Finish.There are several additional tools that require installation during the CCS install process. Click “Yes” or “OK” to proceed when these appear. \\
+\item Download and install the latest full version of TivaWare from: \href{http://www.ti.com/tool/sw-tm4c}{Tivaware Install Link}. The installation is straightforward, and the driver library from Tivaware is used for development.
+\end{enumerate}
+
+\subsubsection{Installing CCS(macOS)}
+Unzip the downloaded zip package, and double click on ccs\_setup\_xxx.app. The installer opens, and refer to steps 1-5 of Windows Installation, it is identical. \\
+For Tivaware installation, download the .exe from \href{http://www.ti.com/tool/sw-tm4c}{Tivaware Install Link}, unzip using Unarchiver and copy the folder to the ti install location at /Applications/ti. Thus, Tivaware is set to be used on macOS.
+
+\subsubsection{Installing TI-RTOS}
+
+TI-RTOS can be installed directly from CCS App Center(recommended)
+\begin{enumerate}
+\item In the Search Box, search for RTOS.
+\item Press Install.
+\item Restart CCS.
+\end{enumerate}
+\\
+Additionally, RTOS can be directly downloaded and installed from the \href{http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/tirtos/index.html}{TI-RTOS Download Page}, for the desired Operating System.
+\\ \\
+You can find additional information at these websites:\\
+Launchpad Home page: \\ \href{http://www.ti.com/launchpad}{http://www.ti.com/launchpad}\\
+Tiva C Series TM4C123G LaunchPad:\\ \href{http://www.ti.com/tool/ek-tm4c123gxl}{http://www.ti.com/tool/ek-tm4c123gxl} \\
+TM4C123GH6PM Resources:\\ \href{http://www.ti.com/product/tm4c123gh6pm}{http://www.ti.com/product/tm4c123gh6pm} \\
+LaunchPad Wiki:\\ \href{http://www.ti.com/launchpadwiki}{http://www.ti.com/launchpadwiki}
+
+\subsection{Mikroelektronika GLCD Font Creator}
+\qquad GLCD Font Creator enables the creation of personalized fonts, symbols and icons for LCDs and GLCDs. Create fonts and symbols from scratch, or by importing existing fonts on your system. It lets you modify and adjust them for your needs, apply effects and finally export them as source code for use in mikroC, mikroBasic or mikroPascal compilers.
+
+\subsubsection{Downloading and Installing Mikroelektronika GLCD Font Creator}
+Download the Windows Installer from their \href{https://download.mikroe.com/setups/additional-software/glcd-font-creator/glcd-font-creator-v120.zip}{official website}. The Install Wizard is pretty straightforward. \\
+For macOS, download the same .exe. Then use Wine to open it(Tutorials on installing and using Wine on macOS can be found \href{https://www.davidbaumgold.com/tutorials/wine-mac/}{here}). 
+
+\subsection{Hobbytronics BMP-LCD Converter}
+\qquad This software converts a 2 colour BMP file into the hex character array that can be used in a program to display the graphic on the LCD screen. It can be downloaded from
+\href{http://www.hobbytronics.co.uk/download/BMP-LCD.zip}{here}. It requires no installation.
+
+\section{Software and Code}
+Three software systems are implemented during the course of the project. They are:
+\begin{enumerate}
+\item Timed Bomb Controller
+\item The Vending Machine Controller
+\item The Breakout Game
+\end{enumerate}
+
+\subsection{Timed Bomb Controller}
+\subsection{Problem Statement}
+\qquad The time bomb has a control panel with an GLCD that shows the current value of the timeout and three buttons: UP, DOWN, and ARM. The user begins with setting up the time bomb using the UP and DOWN buttons to adjust the timeout in one-second steps. Once the desired timeout is selected, the user can arm the bomb by pressing the ARM button. When armed, the bomb starts decrementing the timeout every second and explodes when the timeout reaches zero. An additional safety feature is the option to defuse an armed bomb by entering a secret code. The secret defuse code is a certain combination of the UP,DOWN and LEFT buttons. Of course, the defuse code must be correctly entered before the bomb times out.
+\subsection{StateChart Solution}
+\begin{center}
+\includegraphics[width=10cm,height=10cm]{BombTimerStateChart}
+\\{\small Fig a: TimerState Statechart} 
+\end{center}
+\qquad From the problem statement, the states of Timer Bomb over which its behaviour changes considerably are taken to be individual states of Timer Bomb.In this case, the Bomb Timer problem can be segregated into:
+\begin{itemize}
+  \item \textbf{{\small Idle}} State: \\ \qquad \qquad Perform basic initialization of 4 digit Timer, reset password and display animation.
+    \begin{lstlisting}[basicstyle = \small, language = C]
+        case idle:
+          if(flag1 == 0)
+          {
+            // Display  once
+              cal_time=120;
+              glcd_frame1_write(); //Displays initial animation
+              flag1=1;
+          }
+          break;
+  \end{lstlisting}
+  \item \textbf{{\small setTimer}} State: \\ \qquad \qquad Here UP and DOWN switches are used to set Timer. 4 Digit Timer is updated according to switch presses. MAX and MIN limits are 2 Minutes and 10 seconds respectively. RIGHT switch is used to arm bomb as illustrated in Fig a.
+  \item \textbf{{\small autoTimer}} State: \\ \qquad \qquad In this state 4 Digit Timer starts decrementing till value reaches zero.  illustrated in Fig a.
+      \begin{lstlisting}[basicstyle = \small, language = C]
+  case autoTimer:
+   // In autoTimer Mode, evaluate time and display the timer bits
+      glcd_digit_write(bit_pos0,0);
+      glcd_digit_write(bit_pos1,1);
+      glcd_digit_write(bit_pos2,2);
+      glcd_digit_write(bit_pos3,3);
+      clear_section_glcd(2,0,78);
+      glcd_bomb_write();
+  // Switch to Bomb Explosion on Timeout
+      if(cal_time==0)
+      {
+        flag5=1;
+        flag4=0;
+      }
+  // Decrement Time
+      if(cal_time>0)
+      {
+        cal_time--;
+      }
+      eval_time();
+      break;
+  \end{lstlisting}
+  \item \textbf{{\small bombDiffused}} State: \\ \qquad \qquad No input from the user, but based on switch presses, the password is checked. Sequence is detected. If correct, Bomb is diffused. as illustrated in Fig a.
+  \item \textbf{{\small bombExplode}} State: \\ \qquad \qquad No input from the user, but based on timer value. As Timer value reaches zero bomb Explodes. Animation for the same is displayed as illustrated in Fig a.
+\end{itemize}
+\subsubsection{Program Code}
+\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/TimedBomb_Final}{here}. It contains the complete project folder used in CCS. 
+\begin{itemize}
+  \item The console support libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/TimedBomb_Final/Console}{Console} folder. 
+  \item timedbomb.c is the main file. This contains the Statechart and  the Timer Bomb abstraction.
+\end{itemize}
+\subsection{The Vending Machine Controller}
+\subsubsection{Problem Statement}
+\qquad The overall objective is to design a vending machine controller. The system has five digital inputs and three digital outputs. You can simulate the system with five switches and three LEDs. The inputs are \textit{quarter, dime, nickel, regular soda and diet soda} . The quarter input will go high, then go low when a 25\textcent \  coin is added to the machine. The dime and nickel inputs work in a similar manner for the 10\textcent \  and 5\textcent \ coins. The sodas cost 35\textcent \ each. The user presses the soda button to select a regular soda and the diet button to select a diet soda. The GiveSoda output will release a regular soda if pulsed high, then low. Similarly, the GiveDiet output will release a diet soda if pulsed high, then low. The Change output will release a 5\textcent \ coin if pulsed high, then low.
+\subsubsection{Statechart Solution}
+\begin{center}
+\includegraphics[width=10cm, height=18cm]{VendingMachineStatechart1}
+\\ {\small Fig a: Vending Machine Statechart Part 1}
+\end{center}
+\begin{center}
+\includegraphics[width=10cm, height=9cm]{VendingMachineStatechart2}
+\\ {\small Fig b: Vending Machine Statechart Part 2}
+\end{center}
+\qquad From the problem statement, the states of vending machine over which its behaviour changes considerably are taken to be individual states of the vending machine. In this case, the vending machine problem can be segregated into:
+\begin{itemize}
+  \item \textbf{{\small INITM}} State: \\ \qquad \qquad Perform basic initialization of sum entered, number of regular and diet soda selected variables.
+  \begin{lstlisting}[basicstyle = \small, language = C]
+          case INITM:
+            // Resets various variables.
+            sum = 0;
+            reg_n = 0;
+            diet_n = 0;
+            vm_mode = COIN;
+            input = INITI; // for COIN state
+            output = INITO; // for SELECT state
+  \end{lstlisting}
+  \item \textbf{{\small COIN}} State: \\ \qquad \qquad Switches correspond to coin entry, and coin entry GUI is displayed. (Unique Input and Output Behaviour). Internal transitions corresponding to each coin entry is as illustrated in Fig a.
+  \item \textbf{{\small SELECT}} State: \\ \qquad \qquad Switches correspond to soda selection or cancel transaction, and Soda Selection GUI is displayed. It has internal state transitions corresponding to each selection as illustrated in Fig a.
+  \item \textbf{{\small DELIVERY}} State: \\ \qquad \qquad No input from the user, but based on previous input, dispenses Regular Soda, Diet Soda and change through LED blinks and GLCD display. Internal transition between various states is as illustrated in Fig b.
+\end{itemize}
+\subsubsection{RTOS Implementation}
+\qquad The use of statechart greatly simplifies task scheduling in RTOS. Here, basically two tasks are run as follows:
+\begin{itemize}
+  \item \textbf{{\small readInput()}} Task: \\ \qquad \qquad Handles switch press inputs. Has an internal state machine(implemented using the switch case construct) running as shown in the following code snippet:
+  \begin{lstlisting}[basicstyle = \small, language = C]
+        switch(vm_mode){
+        case INITM:
+            break;
+        case COIN:
+            coinScreenInput();
+            break;
+        case SELECT:
+            selectScreenInput();
+            break;
+        case DELIVERY:
+            // No user input in delivery state
+            break;
+        }
+  \end{lstlisting}
+  \item \textbf{{\small displayOutput()}} Task: \\ \qquad \qquad Handles GLCD display and LED blink outputs. Also has an internal state machine(implemented using the switch case construct) running as shown in the following code snippet:
+  \begin{lstlisting}[basicstyle = \small, language = C]
+        switch(vm_mode){
+        case INITM:
+            // Resets various variables.
+            sum = 0;
+            reg_n = 0;
+            diet_n = 0;
+            vm_mode = COIN;
+            input = INITI;
+            output = INITO;
+        case COIN:
+            coinScreenDisplay(); // Displays GUI for 
+            break;               // coin entry state
+        case SELECT:
+            selectScreenDisplay(); // Displays GUI 
+            break;          // for soda select state
+        case DELIVERY:
+            deliveryOutput(); // Handles Soda and 
+            break;          // coin dispensing
+        }
+  \end{lstlisting}
+\end{itemize}
+\subsubsection{Program Code}
+\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/VendingMachine_Final}{here}. It contains the complete project folder used in CCS. 
+\begin{itemize}
+  \item The console support libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/VendingMachine_Final/Console}{Console} folder. 
+  \item The font and graphic libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/VendingMachine_Final/Images}{Images} folder.
+  \item VM\_RTOS.c is the main file. This contains the Statechart and RTOS implementation of the vending machine abstraction.
+\end{itemize}
+\subsection{The Breakout Game}
+\subsubsection{Game Design}
+\qquad The overall objective is to design the classic Breakout Game for the Tiva C Game Console, using the onboard peripherals.
+The breakout game has a rectangular paddle at the bottom of the screen off which a moving ball ricochets off. At the top of the screen, it consists of rows of bricks. The victory condition is to clear the row of bricks, by hitting it with the ball. 
+\begin{center}
+\includegraphics[width=10cm, height=8cm]{BreakoutDesign} \\
+\caption{Fig a: The Breakout Game Concept}
+\end{center}
+\\ Our implementation of the game is to have 5 types of bricks:
+\begin{itemize}
+  \item \textit{HARD} brick - Takes 3 hits to disappear.
+  \item \textit{MEDIUM} brick - Takes 2 hits to disappear.
+  \item \textit{EASY} brick - Takes 1 hit to disappear.
+  \item \textit{MAGIC1} brick - Delivers a hit to all surrounding bricks.
+  \item \textit{MAGIC2} brick - Increases paddle size for 10 seconds.
+\end{itemize}
+There are 3 difficulty levels:
+\begin{itemize}
+  \item \textit{EASY} - 3 lives, higher proportion of EASY bricks.
+  \item \textit{MEDIUM} - 2 lives, higher proportion of MEDIUM bricks.
+  \item \textit{HARD} - 1 life, higher proportion of HARD bricks.
+\end{itemize}
+Implicit above is an implementation of a life system(allowed number of retries for the player). There are three speeds for the ball:
+\begin{itemize}
+  \item \textit{SLOW} - Ball moves slowly.
+  \item \textit{MEDIUM} - Ball moves at an average speed.
+  \item \textit{FAST} - Ball moves very fast.
+\end{itemize}
+Additionally, the game has the following screens:
+\begin{itemize}
+  \item Entry Cutscene
+  \item Menu Screen
+  \item Instructions Screen(Accessible from the menu)
+  \item Settings Screen(Accessible from the menu)
+  \item Gameplay Screen
+  \item Victory Screen
+  \item Game Over Screen
+\end{itemize}
+\subsubsection{Statechart Solution}
+\qquad Since the game has several active components at the same time, it runs several parallel state machines each of which may or may not be independent of the other. The different state machines are as follows:
+\begin{enumerate}
+\item \textit{Ball Direction} State Machine \\
+\includegraphics[width=14cm, height=16cm]{ballDirectionStatemachine} \\
+\caption{Fig b: Ball Direction State Machine}
+\item \textit{Brick Type} State Machine \\
+\includegraphics[width=14cm, height=14cm]{brickTypeStatemachine} \\
+\caption{Fig b: Ball Direction State Machine}
+\end{enumerate}
+\section{Use and Demo}
+\subsection{Images}
+\subsubsection{Timer Bomb}
+\begin{center}
+\includegraphics[width=8cm, height=6cm]{Enter}
+\\ {\small Fig 1: Idle State}
+\end{center}
+\begin{center}
+\includegraphics[width=8cm, height=6cm]{setTimer1}
+\\ {\small Fig 1: setTimer State}
+\end{center}
+\begin{center}
+\includegraphics[width=8cm, height=6cm]{autoTimer2}
+\\ {\small Fig 1: autoTimer State}
+\end{center}
+\begin{center}
+\includegraphics[width=8cm, height=6cm]{smiley}
+\\ {\small Fig 1: bombDiffused State}
+\end{center}
+\begin{center}
+\includegraphics[width=8cm, height=6cm]{bombExplode3}
+\\ {\small Fig 1: bombExplode State}
+\end{center}
+\subsubsection{Vending machine}
+\begin{center}
+\includegraphics[width=10cm, height=6cm]{COIN}
+\\ {\small Fig 1: COIN State}
+\end{center}
+\begin{center}
+\includegraphics[width=10cm, height=6cm]{SODASELECT}
+\\ {\small Fig 1: SODASELECT State}
+\end{center}
+\begin{center}
+\includegraphics[width=10cm, height=6cm]{DELIVERY}
+\\ {\small Fig 1: DELIVERY State}
+\end{center}
+User Instruction for demonstration
+
+\href{http://www.youtube.com}{Youtube Link} of demonstration video 
+
+\section{Future Work}
+What can be done to take this work ahead in future as projects.
+
+\section{Bug report and Challenges}
+Any issues in code and hardware.
+
+Any failure or challenges faced during project
+
+\begin{thebibliography}{li}
+\bibitem{wavelan97}
+Ad Kamerman and Leo Monteban,
+{\em WaveLAN-II: A High-Performance Wireless LAN for the Unlicensed band},
+1997.
+
+\end{thebibliography}
+
+
+\end{document}
+
