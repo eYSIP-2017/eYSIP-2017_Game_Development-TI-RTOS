@@ -29,10 +29,11 @@
 /*
  * Global Variable Definition
  */
-unsigned char i;
+unsigned char i, j;
 unsigned char block_x;
 unsigned char x_prev;
 unsigned char y_prev;
+uint32_t latency;
 /*
 
  * Function Name: glcd_data(unsigned char data)
@@ -59,7 +60,7 @@ void glcd_data(unsigned char data)
     ROM_GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7, data);
 
     ROM_GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_0, 0x01);
-    delay_ns(10);
+    delay_ns(1);
     ROM_GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_0, 0x00);
 }
 /*
@@ -88,7 +89,7 @@ void glcd_cmd(unsigned char cmd)
     ROM_GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7, cmd);
 
     ROM_GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_0, 0x01);
-    delay_ns(10);
+    delay_ns(1);
     ROM_GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_0, 0x00);
 
 }
@@ -114,7 +115,7 @@ void glcd_setColumn(unsigned char column)
 
         // Select the page
         glcd_cmd(0x40 | column);
-        delay_ns(50);
+        delay_ns(latency);
     }
     else
     {
@@ -123,7 +124,7 @@ void glcd_setColumn(unsigned char column)
 
         // Select the page
         glcd_cmd(0x40 | (column - 64));
-        delay_ns(50);
+        delay_ns(latency);
     }
 }
 /*
@@ -147,15 +148,25 @@ void glcd_setPage(unsigned char page)
 
     // Select the page
     glcd_cmd(0xB8 | page);
-    delay_ns(1);
+    delay_ns(50);
 
     //CS2 = 1, CS1 = 0
     ROM_GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_3, 0x08);
 
     // Select the page
     glcd_cmd(0xB8 | page);
-    delay_ns(1);
+    delay_ns(50);
 
+}
+void glcd_cleanup(unsigned char page, unsigned char quadrant)
+{
+    unsigned char j;
+    glcd_setPage(page);
+    for(j = (quadrant*16); j < ((quadrant*16) + 32); j++)
+    {
+        glcd_setColumn(j);
+        glcd_data(0x00);
+    }
 }
 /*
 

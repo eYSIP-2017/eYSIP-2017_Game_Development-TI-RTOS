@@ -29,7 +29,7 @@
 /*
  * Global Variable Definition
  */
-unsigned char i;
+unsigned char i, j;
 unsigned char block_x;
 unsigned char x_prev;
 unsigned char y_prev;
@@ -148,15 +148,25 @@ void glcd_setPage(unsigned char page)
 
     // Select the page
     glcd_cmd(0xB8 | page);
-    delay_ns(1);
+    delay_ns(50);
 
     //CS2 = 1, CS1 = 0
     ROM_GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_3, 0x08);
 
     // Select the page
     glcd_cmd(0xB8 | page);
-    delay_ns(1);
+    delay_ns(50);
 
+}
+void glcd_cleanup(unsigned char page, unsigned char quadrant)
+{
+    unsigned char j;
+    glcd_setPage(page);
+    for(j = (quadrant*16); j < ((quadrant*16) + 32); j++)
+    {
+        glcd_setColumn(j);
+        glcd_data(0x00);
+    }
 }
 /*
 

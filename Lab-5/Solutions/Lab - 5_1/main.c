@@ -1,16 +1,10 @@
 /*
-
  * Author:  Akshay U Hegde
           ERTS Lab, CSE Department, IIT Bombay
-
  * Description: This is the solution for Lab 5 Problem Statement 1.
-
  * Filename: main.c
-
  * Functions: main()
-
  * Global Variables: None
-
  */
 
 #include <stdint.h>

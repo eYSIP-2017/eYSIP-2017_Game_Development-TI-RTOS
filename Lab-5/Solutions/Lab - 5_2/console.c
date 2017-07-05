@@ -236,9 +236,9 @@ void _init_Interrupt(void)
 void _init_()
 {
     setup();
-    _init_ADC();
+ // _init_ADC();
     _init_GPIO();
-    _init_Interrupt();
+ //  _init_Interrupt();
 }
 
 /*
