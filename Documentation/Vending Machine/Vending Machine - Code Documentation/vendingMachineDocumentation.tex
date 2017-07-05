@@ -168,7 +168,7 @@ enum outputs output = INITO;
     \texttt{output} enumerated variable is thus initially in \texttt{INITO} state. \\
 \qquad Following this, various functions are defined as follows:
 \begin{itemize}
-  \item \texttt{coinScreenInput()}. This function detects which coin has been entered through switch press detection. Handles inputs in COIN state. Calculate sum based on input transition. Also transition to next Vending Machine state.
+  \item \texttt{coinScreenInput()}. This function detects which coin has been entered through switch press detection. Handles inputs in COIN state. Calculate sum based on input transition. Also transition to next Vending Machine state. The state machine(internal is as in Fig c.
       \begin{lstlisting}[basicstyle = \small, language = C]
 void coinScreenInput()
 {
@@ -210,7 +210,7 @@ void coinScreenInput()
     }
 }
   \end{lstlisting}
-  \item \texttt{coinScreenDisplay()}.This function displays GUI to user in the COIN state. Handles GLCD. Changes graphic and text displayed based on input transition.
+  \item \texttt{coinScreenDisplay()}.This function displays GUI to user in the COIN state. Handles GLCD. Changes graphic and text displayed based on input transition. The state machine(internal) is as in Fig a.
       \begin{lstlisting}[basicstyle = \small, language = C]
 void coinScreenDisplay()
 {
@@ -256,7 +256,7 @@ void coinScreenDisplay()
     }
 }
   \end{lstlisting}
-  \item \texttt{selectScreenInput()}. This function selects soda based on switch press. Can select multiple soda at once. Dispensed based on money entered. Handles Input in SELECT state. Also transition to next Vending Machine state.
+  \item \texttt{selectScreenInput()}. This function selects soda based on switch press. Can select multiple soda at once. Dispensed based on money entered. Handles Input in SELECT state. Also transition to next Vending Machine state. The state machine(internal) is as in Fig c.
       \begin{lstlisting}[basicstyle = \small, language = C]
 void selectScreenInput()
 {
@@ -293,7 +293,7 @@ void selectScreenInput()
     }
 }
   \end{lstlisting}
-  \item \texttt{selectScreenDisplay()}. This function displays GUI in SELECT state. Change screens based on Soda Selection.
+  \item \texttt{selectScreenDisplay()}. This function displays GUI in SELECT state. Change screens based on Soda Selection. The state machine(internal) is as in Fig a.
       \begin{lstlisting}[basicstyle = \small, language = C]
 void selectScreenDisplay()
 {
@@ -331,7 +331,7 @@ void selectScreenDisplay()
     }
 }
   \end{lstlisting}
-  \item \texttt{deliveryOutput()}. This function displays GUI in DELIVERY state. Additionally, also in charge of LED blink delivery indication. Certain screens are displayed based on dispensed soda and change, in addition to LED blinks.
+  \item \texttt{deliveryOutput()}. This function displays GUI in DELIVERY state. Additionally, also in charge of LED blink delivery indication. Certain screens are displayed based on dispensed soda and change, in addition to LED blinks. The state machine(internal) is as in Fig b.
       \begin{lstlisting}[basicstyle = \small, language = C]
 void deliveryOutput()
 {
@@ -433,7 +433,7 @@ void deliveryOutput()
     }
 }
   \end{lstlisting}
-  \item \texttt{updateOutput()}. This implements the overall vending machine statechart for the outputs, within it and calls various other functions in different states. Switching State Machine Implementaton in charge of outputs(GLCD and LEDs). Switches between various screens in different Vending Machine states. Is implemented as a task in RTOS, initialized with OutputSem Semaphore.
+    \item \texttt{updateOutput()}. This implements the output vending machine statechart as depicted in Fig a and Fig b. Various internal state machines are implemented using each function. Switches between various screens in different Vending Machine states. Is implemented as a task in RTOS, initialized with OutputSem Semaphore.
       \begin{lstlisting}[basicstyle = \small, language = C]
 void updateOutput(void)
 {
@@ -464,14 +464,20 @@ void updateOutput(void)
     }
 }
   \end{lstlisting}
-  \item \texttt{readInput()}. This function also implements the overall vending machine statechart but for inputs and calls various other functions in different states. Switching State Machine Implementaton in charge of inputs(Switch presses). Has functional descriptions for different states. Is implemented as a task in RTOS, initialized with SwitchSem Semaphore.
-      \begin{lstlisting}[basicstyle = \small, language = C]
+ \item Vending Machine Statechart(Output).
+\begin{center}
+\includegraphics[width=10cm, height=18cm]{vendingMachineOutput1}
+\\ {\small Fig a: Vending Machine Output Statechart Part 1}
+\includegraphics[width=10cm, height=8cm]{VendingMachineOutput2}
+\\ {\small Fig b: Vending Machine Output Statechart Part 2}
+\end{center}
+ \item \texttt{readInput()}. This function implements the Vending Machine Statechart depicted in Fig c and Fig d(Following code snippet). Internal state machines are implemented within each function as described above.Is implemented as a task in RTOS, initialized with SwitchSem Semaphore.
+ \begin{lstlisting}[basicstyle = \small, language = C]
 void readInput(void)
 {
     while(1)
     {
         Semaphore_pend(SwitchSem, BIOS_WAIT_FOREVER);
-
         // Input Control State Machine.
         switch(vm_mode){
         case INITM:
@@ -489,6 +495,13 @@ void readInput(void)
     }
 }
   \end{lstlisting}
+\item Vending Machine Statechart(Input).
+\begin{center}
+\includegraphics[width=10cm, height=18cm]{VendingMachineInput1}
+\\ {\small Fig c: Vending Machine Input Statechart Part 1}
+\includegraphics[width=10cm, height=4cm]{vendingMachineInput2}
+\\ {\small Fig d: Vending Machine Input Statechart Part 2}
+\end{center}
 \end{itemize}
 \qquad \texttt{main()} function serves to initialize and start the BIOS. The BIOS handles program execution. Now, the \texttt{main()} function is defined as follows:
       \begin{lstlisting}[basicstyle = \small, language = C]

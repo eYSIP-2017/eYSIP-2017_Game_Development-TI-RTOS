@@ -272,8 +272,20 @@ enum blocks block[64];
   \end{lstlisting}
     \texttt{block} enumerated variable is thus initialized. \\ \\
 \qquad Following this, various functions are defined as follows: \\ \\
-\texttt{ballMovement()}. This function has the ball direction state machine, which continuously controls ball motion. Ball is reflected off the left,right, top walls and also off the paddle. It also checks for brick collision at all times, and is reflected off of the brick if it is present and also delivers 1 hit to the brick. Initially, it also checks whether all bricks are cleared(for victory condition).
-      \begin{lstlisting}[basicstyle = \small, language = C]
+\texttt{ballMovement()}:\\ This function has the ball direction state machine, which continuously controls ball motion. Ball is reflected off the left,right, top walls and also off the paddle. It also checks for brick collision at all times, and is reflected off of the brick if it is present and also delivers 1 hit to the brick. Initially, it also checks whether all bricks are cleared(for victory condition).
+The state machine implemented here is as follows:
+\begin{center}
+\includegraphics[width=9cm, height=12cm]{ballDirectionStatemachine}
+\\ {\small Fig a: Ball Direction State Machine}
+\end{center}
+\qquad The actual function performs additional checks, and the obstacle hits are inbuilt into certain if else cases within the switch case. The \texttt{blockclear()} function implements the block type state machine as follows:
+\begin{center}
+\includegraphics[width=12cm, height=10cm]{brickTypeStatemachine}
+\\ {\small Fig b: Block Type State Machine}
+\end{center}
+The \texttt{blockclear()} function(Fully documented) is available in the \texttt{gameDisplay.h}.
+\newpage
+\begin{lstlisting}[basicstyle = \small, language = C]
 void ballMovement(void)
 {
     // Victory condition check
@@ -629,7 +641,13 @@ void ballMovement(void)
     }
 }
   \end{lstlisting}
-\texttt{readInput()}.This function switches input behaviour based on the overall state of the game. It includes initial menu navigation using a cursor, which switches between settings, instructions and menu screen using on board switch presses alone. Once in gameplay mode, input is through the ADC Joystick, and Joystick ADC is mapped as per paddle size. Is implemented as a task in RTOS, initialized with readInputSem Semaphore.
+\texttt{readInput()}: \\ This function switches input behaviour based on the overall state of the game. It includes initial menu navigation using a cursor, which switches between settings, instructions and menu screen using on board switch presses alone. Once in gameplay mode, input is through the ADC Joystick, and Joystick ADC is mapped as per paddle size. Is implemented as a task in RTOS, initialized with readInputSem Semaphore. The overall state machine for the game is given by Fig b. \\
+\\ \qquad But the \texttt{readInput()} task handles only the input functions within each state. Output functions are handled by the \texttt{displayOutput()} task. Hence two different instances of the same state machine are called with each task, each with different internal functions. \\
+\\ \qquad Additionally, the \texttt{readInput()} task also runs the internal state machine for the cursor position within the \textit{MENU} and \textiy{SETTINGS} state.
+\begin{center}
+\includegraphics[width=14cm, height=15cm]{gameStateMachine}
+\\ {\small Fig c: Game State Machine}
+\end{center}
   \begin{lstlisting}[basicstyle = \small, language = C]
 void readInput(void)
 {
@@ -952,7 +970,12 @@ void readInput(void)
     }
 }
   \end{lstlisting}
-\texttt{displayOutput()}. This function switches output behaviour based on the overall state of the game. It provides control over buzzer, GLCD and LEDs. Different screens are displayed in different states accordingly with appropriate animations wherever applicable. Is implemented as a task in RTOS, initialized with displayOutputSem Semaphore.
+\texttt{displayOutput()}: \\ This function switches output behaviour based on the overall state of the game. It provides control over buzzer, GLCD and LEDs. Different screens are displayed in different states accordingly with appropriate animations wherever applicable. Is implemented as a task in RTOS, initialized with displayOutputSem Semaphore. \\
+\\ \qquad Internally, in addition to the game state machine, it also implements the gameplay state machine which can be visualized as follows:
+\begin{center}
+\includegraphics[width=4cm, height=8cm]{gameplayStateMachine}
+\\ {\small Fig d: Gameplay State Machine}
+\end{center}
 \begin{lstlisting}[basicstyle = \small, language = C]
 void displayOutput(void)
 {
@@ -1178,7 +1201,7 @@ void displayOutput(void)
 }
   \end{lstlisting}
   
-\qquad \texttt{main()} function serves to initialize and start the BIOS. The BIOS handles program execution. Now, the \texttt{main()} function is defined as follows:
+\texttt{main()}: \\ This function serves to initialize and start the BIOS. The BIOS handles program execution. Now, the \texttt{main()} function is defined as follows:
       \begin{lstlisting}[basicstyle = \small, language = C]
 int main(void) {
 
