@@ -319,9 +319,9 @@ Three software systems are implemented during the course of the project. They ar
   \item \textbf{{\small bombExplode}} State: \\ \qquad \qquad No input from the user, but based on timer value. As Timer value reaches zero bomb Explodes. Animation for the same is displayed as illustrated in Fig a.
 \end{itemize}
 \subsection{Program Code}
-\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/TimedBomb_Final}{here}. It contains the complete project folder used in CCS. 
+\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Timer\%20Bomb/Timer\%20Bomb\%20-\%20Code/TimedBomb_Final}{here}. It contains the complete project folder used in CCS. 
 \begin{itemize}
-  \item The console support libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/TimedBomb_Final/Console}{Console} folder. 
+  \item The console support libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Timer\%20Bomb/Timer\%20Bomb\%20-\%20Code/TimedBomb_Final/Console}{Console} folder. 
   \item timedbomb.c is the main file. This contains the Statechart and  the Timer Bomb abstraction.
 \end{itemize}
 
@@ -397,10 +397,10 @@ Three software systems are implemented during the course of the project. They ar
   \end{lstlisting}
 \end{itemize}
 \subsection{Program Code}
-\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/VendingMachine_Final}{here}. It contains the complete project folder used in CCS. 
+\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Vending\%20Machine/Vending\%20Machine\%20-\%20Code/Implemented\%20Code}{here}. It contains the complete project folder used in CCS. 
 \begin{itemize}
-  \item The console support libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/VendingMachine_Final/Console}{Console} folder. 
-  \item The font and graphic libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/VendingMachine_Final/Images}{Images} folder.
+  \item The console support libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Vending\%20Machine/Vending\%20Machine\%20-\%20Code/Implemented\%20Code/Console}{Console} folder. 
+  \item The font and graphic libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Vending\%20Machine/Vending\%20Machine\%20-\%20Code/Implemented\%20Code/Images}{Images} folder.
   \item VM\_RTOS.c is the main file. This contains the Statechart and RTOS implementation of the vending machine abstraction.
 \end{itemize}
 \section{The Breakout Game}
@@ -409,7 +409,7 @@ Three software systems are implemented during the course of the project. They ar
 The breakout game has a rectangular paddle at the bottom of the screen off which a moving ball ricochets off. At the top of the screen, it consists of rows of bricks. The victory condition is to clear the row of bricks, by hitting it with the ball. 
 \begin{center}
 \includegraphics[width=10cm, height=8cm]{BreakoutImages/BreakoutDesign} \\
-\caption{Fig 4.3(a): The Breakout Game Concept}
+\caption{Fig 4.3(a): The Breakout Game Concept \\ Image Credits: \href{http://playsterr.com/wp-content/uploads/2016/01/breakout-voyager_img1.png}{Playsterr}} 
 \end{center}
 \\ Our implementation of the game is to have 5 types of bricks:
 \begin{itemize}
@@ -445,7 +445,7 @@ Additionally, the game has the following screens:
 \qquad Since the game has several active components at the same time, it runs several parallel state machines each of which may or may not be independent of the other. The different state machines are as follows:
 \begin{center}
 \includegraphics[width=14cm, height=18cm]{BreakoutImages/gameStateMachine} \\
-\caption{Fig 4.3(b): Game Screens State Machine} \\
+\caption{Fig 4.3(b): Game Screens State Machine  \\
 \end{center}
 \newpage
 \qquad The overall states in which the game exists is as shown in Fig 4.3(b). A brief explanation of each state is as follows:
@@ -492,11 +492,11 @@ Additionally, the game has the following screens:
   \item \textbf{{\small displayOutput()}} Task: \\ \qquad \qquad Handles GLCD display, LED blink, motor vibration and Buzzer outputs. Also has an internal state machine(implemented using the switch case construct) running.
 \end{itemize}
 \subsection{Program Code}
-\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Breakout_Final}{here}. It contains the complete project folder used in CCS. 
+\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Breakout/Breakout\%20-\%20Code/Implemented\%20Code}{here}. It contains the complete project folder used in CCS. 
 \begin{itemize}
-  \item The console support libraries(including the font libraries) are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Breakout_Final/Console}{Console} folder. 
-  \item The game objects are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Breakout_Final/Objects}{Objects} folder.
-    \item The game screens are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Breakout_Final/Screens}{Screens} folder.
+  \item The console support libraries(including the font libraries) are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Breakout/Breakout\%20-\%20Code/Implemented\%20Code/Console}{Console} folder. 
+  \item The game objects are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Breakout/Breakout\%20-\%20Code/Implemented\%20Code/Objects}{Objects} folder.
+    \item The game screens are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Breakout/Breakout\%20-\%20Code/Implemented\%20Code/Screens}{Screens} folder.
   \item game.c is the main file. This contains the two basic tasks part of RTOS, with their internal state machines. Additional functions are used from above libraries.
 \end{itemize}
 \chapter{Use and Demo}
@@ -579,11 +579,20 @@ Additionally, the game has the following screens:
 \item The State Table implementation of the Statecharts also proved an unassailable task because of little familiarisation with C structures.
 \end{enumerate}
 \begin{thebibliography}{li}
-\bibitem{wavelan97}
-Ad Kamerman and Leo Monteban,
-{\em WaveLAN-II: A High-Performance Wireless LAN for the Unlicensed band},
-1997.
+\bibitem{datasheet}
+{\em \href{http://www.ti.com/lit/ds/spms376e/spms376e.pdf}{TM4C123GH6PM Data Sheet}}
+\bibitem{tivactutorial}
+{\em \href{http://software-dl.ti.com/trainingTTO/trainingTTO_public_sw/GSW-TM4C123G-LaunchPad/TM4C123G_LaunchPad_Workshop_Workbook.pdf}{Tiva C Workbook}}
+\bibitem{tirtostutorial}
+{\em \href{http://www.ti.com/lit/ug/spruhd4m/spruhd4m.pdf}{TI-RTOS 2.20 User's Guide}}
+\bibitem{statechart}
+David Harel and A Pneuli,
+{\em Statecharts: A Visual Formalism for Complex Systems},
+1987.
+\bibitem{quantumframework}
+Miro Samek,
+{\em Practical UML Statecharts in C/C++,ISBN: 978-0-7506-8706-5},
+2009.
 \end{thebibliography}
-
 
 \end{document}
