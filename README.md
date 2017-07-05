@@ -1,6 +1,11 @@
 # eYSIP-2017_Game_Development-TI-RTOS
 Real Time Systems is the reactive embedded systems where system has to perform various tasks within timeline. There are various software architecture for programming Real Time Systems. So this project deals with various concepts of Real Time Systems and developing various exercises based on TI-RTOS.  This project aims at developing software modules which will form the basis for any game that can be developed on the console on GLCD.
 
+## Software Versions Used
+* Code Composer Studio Version: 7.1.0.00016
+* Tivaware Version: 2.1.2.111
+* TI-RTOS Version: 2.16.01.14 
+
 ## Folder Structure
 * Labs - Contains solutions for labs on Tiva Development Board
 * Demo Poster - Poster for exhibition
