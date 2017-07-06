@@ -11,7 +11,7 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=cyan,
 }
 
@@ -35,11 +35,11 @@
   {}                % label
   {0pt}             % sep
   {\huge}           % before-code
- 
+
 %use of package tcolorbox for colorful textbox
 \usepackage[most]{tcolorbox}
 \tcbset{colback=cyan!5!white,colframe=cyan!75!black,halign title = flush center}
- 
+
 \lstset{language=C,
                 basicstyle=\ttfamily,
                 keywordstyle=\color{blue}\ttfamily,
@@ -116,7 +116,7 @@ contents={\includegraphics{logo}}
 
 \chapter{Hardware parts}
 \begin{itemize}
-  \item List of hardware 
+  \item List of hardware
   \begin{itemize}
     \item Graphical LCD
     \item Buzzer
@@ -160,9 +160,9 @@ contents={\includegraphics{logo}}
       \item 2 Axis Joystick.
       \item ADC Output.
       \item 2 Potentiometer.
-      \item 
+      \item
     \end{itemize}
-    \item Vibration Motor 
+    \item Vibration Motor
     \begin{itemize}
       \item An eccentric rotating mass vibration motor (ERM).
       \item Uses a small unbalanced mass on a DC motor, when it rotates it creates a force that translates to vibrations.
@@ -179,11 +179,11 @@ contents={\includegraphics{logo}}
   \end{center}
   \item Links
   \begin{itemize}
-  \item 
+  \item
   \href{https://www.engineersgarage.com/sites/default/files/Graphics\%20LCD\%20JHD12864E\%20Datasheet.pdf}{GLCD Datasheet}
   \item
   \href{https://www.engineersgarage.com/sites/default/files/74LS04.pdf}{IC 7404 Datasheet}
-  \end{itemize} 
+  \end{itemize}
 \end{itemize}
 
 \chapter{Software used}
@@ -195,15 +195,15 @@ contents={\includegraphics{logo}}
 Download the Windows installer from
 \begin{enumerate}
 \item \href{http://software-dl.ti.com/ccs/esd/CCSv7/CCS_7_1_0/exports/ccs_setup_7.1.0.00016.exe}{CCS(Windows) Web Installer} or
-\item \href{http://software-dl.ti.com/ccs/esd/CCSv7/CCS_7_1_0/exports/CCS7.1.0.00016_win32.zip}{CCS(Windows) Offline Installer}. 
-\end{enumerate} 
+\item \href{http://software-dl.ti.com/ccs/esd/CCSv7/CCS_7_1_0/exports/CCS7.1.0.00016_win32.zip}{CCS(Windows) Offline Installer}.
+\end{enumerate}
 Download the macOS installer from
 \begin{enumerate}
 \item \href{http://software-dl.ti.com/ccs/esd/CCSv7/CCS_7_1_0/exports/CCS7.1.0.00016_web_osx.zip}{CCS(macOS) Web Installer} or
-\item \href{http://software-dl.ti.com/ccs/esd/CCSv7/CCS_7_1_0/exports/CCS7.1.0.00016_osx.zip}{CCS(macOS) Offline Installer}. 
-\end{enumerate} 
+\item \href{http://software-dl.ti.com/ccs/esd/CCSv7/CCS_7_1_0/exports/CCS7.1.0.00016_osx.zip}{CCS(macOS) Offline Installer}.
+\end{enumerate}
 Linux versions can be installed from \href{http://processors.wiki.ti.com/index.php/Download_CCS}{CCS All Versions Download Page}. \\
-\qquad The web installer will require Internet access until it completes. If the web installer version is unavailable or you can’t get it to work,download, unzip and run the offline version. The offline download will be much larger than the installed size of CCS since it includes all the possible supported hardware. 
+\qquad The web installer will require Internet access until it completes. If the web installer version is unavailable or you can’t get it to work,download, unzip and run the offline version. The offline download will be much larger than the installed size of CCS since it includes all the possible supported hardware.
 \subsection{Installing CCS(Windows)}
 Double click on the downloaded installer, after the installer has started, follow the steps mentioned below:\\
 \begin{enumerate}
@@ -252,7 +252,7 @@ LaunchPad Wiki:\\ \href{http://www.ti.com/launchpadwiki}{http://www.ti.com/launc
 
 \subsection{Downloading and Installing Mikroelektronika GLCD Font Creator}
 Download the Windows Installer from their \href{https://download.mikroe.com/setups/additional-software/glcd-font-creator/glcd-font-creator-v120.zip}{official website}. The Install Wizard is pretty straightforward. \\
-For macOS, download the same .exe. Then use Wine to open it(Tutorials on installing and using Wine on macOS can be found \href{https://www.davidbaumgold.com/tutorials/wine-mac/}{here}). 
+For macOS, download the same .exe. Then use Wine to open it(Tutorials on installing and using Wine on macOS can be found \href{https://www.davidbaumgold.com/tutorials/wine-mac/}{here}).
 
 \section{Hobbytronics BMP-LCD Converter}
 \qquad This software converts a 2 colour BMP file into the hex character array that can be used in a program to display the graphic on the LCD screen. It can be downloaded from
@@ -272,7 +272,7 @@ Three software systems are implemented during the course of the project. They ar
 \subsection{StateChart Solution}
 \begin{center}
 \includegraphics[width=10cm,height=10cm]{TimedBombImages/BombTimerStateChart}
-\\{\small Fig a: TimerState Statechart} 
+\\{\small Fig a: TimerState Statechart}
 \end{center}
 \qquad From the problem statement, the states of Timer Bomb over which its behaviour changes considerably are taken to be individual states of Timer Bomb.In this case, the Bomb Timer problem can be segregated into:
 \begin{itemize}
@@ -283,7 +283,7 @@ Three software systems are implemented during the course of the project. They ar
           {
             // Display  once
               cal_time=120;
-              glcd_frame1_write(); //Displays 
+              glcd_frame1_write(); //Displays
               // initial animation
               flag1=1;
           }
@@ -293,7 +293,7 @@ Three software systems are implemented during the course of the project. They ar
   \item \textbf{{\small autoTimer}} State: \\ \qquad \qquad In this state 4 Digit Timer starts decrementing till value reaches zero.  illustrated in Fig a.
       \begin{lstlisting}[basicstyle = \small, language = C]
   case autoTimer:
-   // In autoTimer Mode, evaluate time and 
+   // In autoTimer Mode, evaluate time and
    // display the timer bits
       glcd_digit_write(bit_pos0,0);
       glcd_digit_write(bit_pos1,1);
@@ -319,9 +319,9 @@ Three software systems are implemented during the course of the project. They ar
   \item \textbf{{\small bombExplode}} State: \\ \qquad \qquad No input from the user, but based on timer value. As Timer value reaches zero bomb Explodes. Animation for the same is displayed as illustrated in Fig a.
 \end{itemize}
 \subsection{Program Code}
-\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Timer\%20Bomb/Timer\%20Bomb\%20-\%20Code/TimedBomb_Final}{here}. It contains the complete project folder used in CCS. 
+\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Timer\%20Bomb/Timer\%20Bomb\%20-\%20Code/TimedBomb_Final}{here}. It contains the complete project folder used in CCS.
 \begin{itemize}
-  \item The console support libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Timer\%20Bomb/Timer\%20Bomb\%20-\%20Code/TimedBomb_Final/Console}{Console} folder. 
+  \item The console support libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Timer\%20Bomb/Timer\%20Bomb\%20-\%20Code/TimedBomb_Final/Console}{Console} folder.
   \item timedbomb.c is the main file. This contains the Statechart and  the Timer Bomb abstraction.
 \end{itemize}
 
@@ -373,7 +373,7 @@ Three software systems are implemented during the course of the project. They ar
             break;
         }
   \end{lstlisting}
-  \item \textbf{{\small displayOutput()}} Task: \\ \qquad \qquad Handles GLCD display and LED blink outputs. Also has an internal state machine(implemented using the switch case construct) running as shown in the following code snippet:
+  \item \textbf{{\small updateOutput()}} Task: \\ \qquad \qquad Handles GLCD display and LED blink outputs. Also has an internal state machine(implemented using the switch case construct) running as shown in the following code snippet:
   \begin{lstlisting}[basicstyle = \small, language = C]
         switch(vm_mode){
         case INITM:
@@ -385,31 +385,31 @@ Three software systems are implemented during the course of the project. They ar
             input = INITI;
             output = INITO;
         case COIN:
-            coinScreenDisplay(); // Displays GUI for 
+            coinScreenDisplay(); // Displays GUI for
             break;               // coin entry state
         case SELECT:
-            selectScreenDisplay(); // Displays GUI 
+            selectScreenDisplay(); // Displays GUI
             break;          // for soda select state
         case DELIVERY:
-            deliveryOutput(); // Handles Soda and 
+            deliveryOutput(); // Handles Soda and
             break;          // coin dispensing
         }
   \end{lstlisting}
 \end{itemize}
 \subsection{Program Code}
-\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Vending\%20Machine/Vending\%20Machine\%20-\%20Code/Implemented\%20Code}{here}. It contains the complete project folder used in CCS. 
+\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Vending\%20Machine/Vending\%20Machine\%20-\%20Code/Implemented\%20Code}{here}. It contains the complete project folder used in CCS.
 \begin{itemize}
-  \item The console support libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Vending\%20Machine/Vending\%20Machine\%20-\%20Code/Implemented\%20Code/Console}{Console} folder. 
+  \item The console support libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Vending\%20Machine/Vending\%20Machine\%20-\%20Code/Implemented\%20Code/Console}{Console} folder.
   \item The font and graphic libraries are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Vending\%20Machine/Vending\%20Machine\%20-\%20Code/Implemented\%20Code/Images}{Images} folder.
   \item VM\_RTOS.c is the main file. This contains the Statechart and RTOS implementation of the vending machine abstraction.
 \end{itemize}
 \section{The Breakout Game}
 \subsection{Game Design}
 \qquad The overall objective is to design the classic Breakout Game for the Tiva C Game Console, using the onboard peripherals.
-The breakout game has a rectangular paddle at the bottom of the screen off which a moving ball ricochets off. At the top of the screen, it consists of rows of bricks. The victory condition is to clear the row of bricks, by hitting it with the ball. 
+The breakout game has a rectangular paddle at the bottom of the screen off which a moving ball ricochets off. At the top of the screen, it consists of rows of bricks. The victory condition is to clear the row of bricks, by hitting it with the ball.
 \begin{center}
 \includegraphics[width=10cm, height=8cm]{BreakoutImages/BreakoutDesign} \\
-\caption{Fig 4.3(a): The Breakout Game Concept \\ Image Credits: \href{http://playsterr.com/wp-content/uploads/2016/01/breakout-voyager_img1.png}{Playsterr}} 
+\caption{Fig 4.3(a): The Breakout Game Concept \\ Image Credits: \href{http://playsterr.com/wp-content/uploads/2016/01/breakout-voyager_img1.png}{Playsterr}}
 \end{center}
 \\ Our implementation of the game is to have 5 types of bricks:
 \begin{itemize}
@@ -450,7 +450,7 @@ Additionally, the game has the following screens:
 \newpage
 \qquad The overall states in which the game exists is as shown in Fig 4.3(b). A brief explanation of each state is as follows:
 \begin{itemize}
-  \item \textbf{MENU} State: \\ \qquad This acts as the GUI for the user, and follows the initial cutscene(The Cutscene displays the cutscene graphic(as in Fig 5.3(a)) while playing Music).  The Menu Screen is as in Fig 5.3(b), and switch presses are used to move the cursor. 
+  \item \textbf{MENU} State: \\ \qquad This acts as the GUI for the user, and follows the initial cutscene(The Cutscene displays the cutscene graphic(as in Fig 5.3(a)) while playing Music).  The Menu Screen is as in Fig 5.3(b), and switch presses are used to move the cursor.
   \\ \textit{RIGHT} Switch press is used for selection.
   \\ \textit{UP} Switch press is to move cursor up.
   \\ \textit{DOWN} Switch press is to move cursor down.
@@ -492,9 +492,9 @@ Additionally, the game has the following screens:
   \item \textbf{{\small displayOutput()}} Task: \\ \qquad \qquad Handles GLCD display, LED blink, motor vibration and Buzzer outputs. Also has an internal state machine(implemented using the switch case construct) running.
 \end{itemize}
 \subsection{Program Code}
-\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Breakout/Breakout\%20-\%20Code/Implemented\%20Code}{here}. It contains the complete project folder used in CCS. 
+\qquad The git repository for the complete code can be found \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Breakout/Breakout\%20-\%20Code/Implemented\%20Code}{here}. It contains the complete project folder used in CCS.
 \begin{itemize}
-  \item The console support libraries(including the font libraries) are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Breakout/Breakout\%20-\%20Code/Implemented\%20Code/Console}{Console} folder. 
+  \item The console support libraries(including the font libraries) are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Breakout/Breakout\%20-\%20Code/Implemented\%20Code/Console}{Console} folder.
   \item The game objects are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Breakout/Breakout\%20-\%20Code/Implemented\%20Code/Objects}{Objects} folder.
     \item The game screens are present in the \href{https://github.com/eYSIP-2017/eYSIP-2017_Game_Development-TI-RTOS/tree/master/Documentation/Breakout/Breakout\%20-\%20Code/Implemented\%20Code/Screens}{Screens} folder.
   \item game.c is the main file. This contains the two basic tasks part of RTOS, with their internal state machines. Additional functions are used from above libraries.
@@ -546,7 +546,7 @@ Additionally, the game has the following screens:
 {\small Fig 5.3(h): Victory Screen} \\
 \end{center}
 \section{The Breakout Game - Demonstration Video}
-\qquad The implementation of the breakout game, the various overall states, internal state machines, operation, options, etc are explained in the demonstration video available \href{https://youtu.be/RmcoHzYo_G8}{here}. 
+\qquad The implementation of the breakout game, the various overall states, internal state machines, operation, options, etc are explained in the demonstration video available \href{https://youtu.be/RmcoHzYo_G8}{here}.
 
 \chapter{Future Work}
 \qquad We have provided a basement upon which much more complex games can be implemented using on-board hardware on the console, including tone libraries, glcd libraries, creating graphic, etc. Further innovation is possible in the following arenas:
@@ -564,11 +564,11 @@ Additionally, the game has the following screens:
 \begin{enumerate}
 \item (\textit{Solved})The GLCD Display has an issue of \textit{one half of the screen not being initialized} at random instances(Does not happen all the time). In this case, a delay is added before and after the glcd\_cmd(0x3F) command in glcd\_init() in the GLCD library to remove the error.
 \item (\textit{Solved}) If certain game objects reference portions of GLCD which are out of bounds(like row < 0 or row > 7 or column < 0 or column > 128), \textit{unpredictable behaviour} occurs on screen. So ensure that the row and column variables remain always within limits. Encountered using paddle implementation.
-\item (\textit{Unsolved})The block wall is \textit{not randomized} in spite of using the randomizer(rand() in C), because, since the randomizer is executed in C by the compiler, the \textit{numbers are pre-generated} and stored in the hex file which is dumped onto the board. And hence, the blocks remain unrandomized till a fresh program is loaded onto the board. A proposed solution is to use a timer to make the randomizer generate a seed number based on time taken by the user to press play. 
-\item (\textit{Unsolved})The \textit{Buzzer has distinct output frequencies at different points of time}, and some of the tones sound weird at random times. But this is restricted to hardware capabilities of the buzzer and is not an error in code. 
+\item (\textit{Unsolved})The block wall is \textit{not randomized} in spite of using the randomizer(rand() in C), because, since the randomizer is executed in C by the compiler, the \textit{numbers are pre-generated} and stored in the hex file which is dumped onto the board. And hence, the blocks remain unrandomized till a fresh program is loaded onto the board. A proposed solution is to use a timer to make the randomizer generate a seed number based on time taken by the user to press play.
+\item (\textit{Unsolved})The \textit{Buzzer has distinct output frequencies at different points of time}, and some of the tones sound weird at random times. But this is restricted to hardware capabilities of the buzzer and is not an error in code.
 \item (\textit{Unsolved})The \textit{vibration motor is not responsive} to shortlived ON and OFF actions in code. And only works at certain random instances. Proposed solution is to use a better motor.
 \item (\textit{Unsolved})The \textit{moving ball on screen remains uncleared} at certain instances on screen, even after an explicit clear command. Adding of delay during ball clear is of little use. And the problem persists.
-\item (\textit{Unsolved}) When strings are displayed using the font library, certain \textit{characters appear at random rows} inspite of explicit specification of a certain row and cursor position. Reasons unknown. 
+\item (\textit{Unsolved}) When strings are displayed using the font library, certain \textit{characters appear at random rows} inspite of explicit specification of a certain row and cursor position. Reasons unknown.
 \end{enumerate}
 \section{Challenges Faced}
 \qquad During the course of the project, there were several challenges faced, as follows:
